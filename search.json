@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "homework.html",
+    "href": "homework.html",
+    "title": "Homework",
+    "section": "",
+    "text": "Assignments Organized by Due Date\nWelcome to my homework page!\nClick on an assignment below:\n\nSeptember 10th, 2025"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This is the website I created for EPPS 6356 Data Visualization. For more information feel free to reach me at joseph.martinez@utdallas.edu or 210-837-0859."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "The Website of Joseph Martinez",
+    "section": "",
+    "text": "Hey! I am Joseph Martinez.\nThis is a my Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+  }
+]
