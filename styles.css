@@ -1,1 +1,21 @@
 /* css styles */
+table.dataTable thead th {
+  background-color: white !important;
+  color: black !important;
+  font-weight: bold;
+}
+.dataTables_wrapper, 
+.dataTables_length, 
+.dataTables_filter, 
+.dataTables_info, 
+.dataTables_paginate {
+  background-color: white !important;
+  color: black !important;
+}
+.dataTables_filter input {
+  background-color: white !important;
+  color: black !important;
+}
+table.dataTable {
+  border: 1px solid black !important;
+}
