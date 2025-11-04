@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>assignments – Joseph Martinez: Broker &amp; Aspiring Analyst</title>
+<title>Assignment 6 - October 31st, 2025 – Joseph Martinez: Broker &amp; Aspiring Analyst</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -124,7 +159,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">assignments</h1>
+<h1 class="title">Assignment 6 - October 31st, 2025</h1>
 </div>
 
 
@@ -141,15 +176,88 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>ASSIGNMENTS</strong></p>
-<ul>
-<li><a href="./assignment1.html">Assignment 1 - September 24th, 2025</a></li>
-<li><a href="./assignment2.html">Assignment 2 - October 2nd, 2025</a></li>
-<li><a href="./assignment3.html">Assignment 3 - October 8th, 2025</a></li>
-<li><a href="./assignment4.html">Assignment 4 - October 10th, 2025</a></li>
-<li><a href="./assignment5.html">Assignment 5 - October 22nd, 2025</a></li>
-<li><a href="./assignment6.html">Assignment 6 - October 31st, 2025</a></li>
-</ul>
+<p><strong>In Class Coding Competition 3:</strong></p>
+<p><strong>This is the shiny application that allows users to toggle between a bubble chart and a line histogram showcasing the relationship between the MPG of a vehicle and its weight, frequency polygon, hoursepower, and bin width.</strong></p>
+<iframe src="https://martinez2k18.shinyapps.io/classcode3/" width="100%" height="800" style="border:none;">
+</iframe>
+<p><strong>This is the code to our application.</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a Shiny web application. You can run the application by clicking</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># the 'Run App' button above.</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Find out more about building applications with Shiny here:</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#    https://shiny.posit.co/</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Define UI for application</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">titlePanel</span>(<span class="st">"mtcars: Distribution and Relationship Visualization"</span>),</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sidebarLayout</span>(</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarPanel</span>(</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Select which plot to display</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>      <span class="fu">selectInput</span>(<span class="st">"plot_type"</span>, <span class="st">"Choose Visualization:"</span>,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>                  <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">"Line Histogram (MPG)"</span> <span class="ot">=</span> <span class="st">"histogram"</span>,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"Bubble Chart"</span> <span class="ot">=</span> <span class="st">"bubble"</span>)),</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Conditional UI for the histogram</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>      <span class="fu">conditionalPanel</span>(</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">condition =</span> <span class="st">"input.plot_type == 'histogram'"</span>,</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>        <span class="fu">sliderInput</span>(<span class="st">"bins"</span>, <span class="st">"Bin Width for Line Histogram:"</span>,</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>                    <span class="at">min =</span> <span class="dv">1</span>, <span class="at">max =</span> <span class="dv">5</span>, <span class="at">value =</span> <span class="dv">2</span>, <span class="at">step =</span> <span class="fl">0.5</span>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mainPanel</span>(</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>      <span class="fu">plotOutput</span>(<span class="st">"mainPlot"</span>)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Define server logic</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>mainPlot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    data <span class="ot">&lt;-</span> mtcars <span class="co">#sample dataset from shiny library</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (input<span class="sc">$</span>plot_type <span class="sc">==</span> <span class="st">"histogram"</span>) {</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Line Histogram (Frequency Polygon) for MPG</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>      <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> mpg)) <span class="sc">+</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_freqpoly</span>(</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>          <span class="at">binwidth =</span> input<span class="sc">$</span>bins,</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>          <span class="at">color =</span> <span class="st">"darkgreen"</span>,</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>          <span class="at">linewidth =</span> <span class="fl">1.2</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>        ) <span class="sc">+</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>        <span class="fu">labs</span>(</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>          <span class="at">title =</span> <span class="st">"Frequency Polygon of Car Mileage (MPG)"</span>,</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>          <span class="at">x =</span> <span class="st">"Miles Per Gallon (mpg)"</span>,</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>          <span class="at">y =</span> <span class="st">"Count"</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>        ) <span class="sc">+</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>        <span class="fu">theme_minimal</span>()</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> <span class="cf">if</span> (input<span class="sc">$</span>plot_type <span class="sc">==</span> <span class="st">"bubble"</span>) {</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Bubble Chart: X=Weight, Y=MPG, Size=Horsepower</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>      <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> wt, <span class="at">y =</span> mpg, <span class="at">size =</span> hp, <span class="at">color =</span> <span class="fu">as.factor</span>(cyl))) <span class="sc">+</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">15</span>)) <span class="sc">+</span> <span class="co"># Scale bubble size for better visibility</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>        <span class="fu">labs</span>(</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>          <span class="at">title =</span> <span class="st">"Bubble Chart: MPG vs. Weight"</span>,</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>          <span class="at">x =</span> <span class="st">"Weight (1000 lbs)"</span>,</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>          <span class="at">y =</span> <span class="st">"Miles Per Gallon (mpg)"</span>,</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>          <span class="at">size =</span> <span class="st">"Horsepower (hp)"</span>,</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>          <span class="at">color =</span> <span class="st">"Cylinders"</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>        ) <span class="sc">+</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>        <span class="fu">theme_bw</span>()</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the application </span></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 

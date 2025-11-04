@@ -346,43 +346,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p><strong>Barplot</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Barplot</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">2</span>, <span class="fl">3.1</span>, <span class="dv">2</span>, <span class="fl">2.1</span>)) </span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>midpts <span class="ot">&lt;-</span> <span class="fu">barplot</span>(VADeaths, </span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">col=</span><span class="fu">gray</span>(<span class="fl">0.1</span> <span class="sc">+</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">9</span>, <span class="dv">2</span>)<span class="sc">/</span><span class="dv">11</span>), </span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">names=</span><span class="fu">rep</span>(<span class="st">""</span>, <span class="dv">4</span>))</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="fu">sub</span>(<span class="st">" "</span>, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>, <span class="fu">colnames</span>(VADeaths)),</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">at=</span>midpts, <span class="at">side=</span><span class="dv">1</span>, <span class="at">line=</span><span class="fl">0.5</span>, <span class="at">cex=</span><span class="fl">0.5</span>)</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fu">rep</span>(midpts, <span class="at">each=</span><span class="dv">5</span>), <span class="fu">apply</span>(VADeaths, <span class="dv">2</span>, cumsum) <span class="sc">-</span> VADeaths<span class="sc">/</span><span class="dv">2</span>,</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>     VADeaths, </span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">col=</span><span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"white"</span>, <span class="st">"black"</span>), <span class="at">times=</span><span class="dv">3</span><span class="sc">:</span><span class="dv">2</span>), </span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">cex=</span><span class="fl">0.8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="assignment2_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="fl">5.1</span>, <span class="fl">4.1</span>, <span class="fl">4.1</span>, <span class="fl">2.1</span>))  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>HPI_dataset <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"C:/Users/marti/OneDrive/Desktop/test/HPI_dataset.xlsx"</span>, </span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">sheet =</span> <span class="st">"1. All countries"</span>, </span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">range =</span> <span class="st">"A9:L158"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>HPI_dataset <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"C:/Users/marti/OneDrive/Desktop/test/HPI_dataset.xlsx"</span>, </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">sheet =</span> <span class="st">"1. All countries"</span>, </span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">range =</span> <span class="st">"A9:L158"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>New names:
 • `` -&gt; `...4`</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>hpi <span class="ot">&lt;-</span> HPI_dataset</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Make column names R-safe</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(hpi) <span class="ot">&lt;-</span> <span class="fu">make.names</span>(<span class="fu">names</span>(hpi))</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Check column names (see the exact GDP column)</span></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">names</span>(hpi))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>hpi <span class="ot">&lt;-</span> HPI_dataset</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Make column names R-safe</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(hpi) <span class="ot">&lt;-</span> <span class="fu">make.names</span>(<span class="fu">names</span>(hpi))</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Check column names (see the exact GDP column)</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">names</span>(hpi))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "HPI.rank"                          "Country"                          
  [3] "ISO"                               "...4"                             
@@ -391,49 +370,97 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  [9] "Carbon.Footprint..tCO2e."          "HPI"                              
 [11] "CO2.threshold.for.year...tCO2e."   "GDP.per.capita...."               </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aggregate mean GDP per capita by continent</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>gdp_by_continent <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(<span class="st">`</span><span class="at">GDP.per.capita....</span><span class="st">`</span> <span class="sc">~</span> Continent,</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">data =</span> hpi,</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">FUN =</span> mean,</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>                              <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename columns for convenience</span></span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(gdp_by_continent) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Continent"</span>, <span class="st">"GDP.per.capita"</span>)</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 🗺️ Map numeric continent codes to names</span></span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>continent_names <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Latin America"</span>,</span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"N. America &amp; Oceania"</span>,</span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Western Europe"</span>,</span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>  <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Middle East"</span>,</span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">"5"</span> <span class="ot">=</span> <span class="st">"Africa"</span>,</span>
-<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>  <span class="st">"6"</span> <span class="ot">=</span> <span class="st">"South Asia"</span>,</span>
-<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>  <span class="st">"7"</span> <span class="ot">=</span> <span class="st">"Eastern Europe &amp; Central Asia"</span>,</span>
-<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>  <span class="st">"8"</span> <span class="ot">=</span> <span class="st">"East Asia"</span></span>
-<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace codes with readable names</span></span>
-<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>gdp_by_continent<span class="sc">$</span>Continent <span class="ot">&lt;-</span> continent_names[<span class="fu">as.character</span>(gdp_by_continent<span class="sc">$</span>Continent)]</span>
-<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort continents by GDP (descending)</span></span>
-<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>gdp_by_continent <span class="ot">&lt;-</span> gdp_by_continent[<span class="fu">order</span>(gdp_by_continent<span class="sc">$</span>GDP.per.capita, <span class="at">decreasing =</span> <span class="cn">TRUE</span>), ]</span>
-<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- Barplot ----</span></span>
-<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>))</span>
-<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a>midpts <span class="ot">&lt;-</span> <span class="fu">barplot</span>(gdp_by_continent<span class="sc">$</span>GDP.per.capita,</span>
-<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a>                  <span class="at">names.arg =</span> <span class="fu">rep</span>(<span class="st">""</span>, <span class="fu">nrow</span>(gdp_by_continent)),</span>
-<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a>                  <span class="at">col =</span> <span class="fu">gray</span>(<span class="fu">seq</span>(<span class="fl">0.3</span>, <span class="fl">0.8</span>, <span class="at">length.out =</span> <span class="fu">nrow</span>(gdp_by_continent))),</span>
-<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a>                  <span class="at">main =</span> <span class="st">"Average GDP per Capita by Continent"</span>,</span>
-<span id="cb23-34"><a href="#cb23-34" aria-hidden="true" tabindex="-1"></a>                  <span class="at">ylab =</span> <span class="st">"Avg GDP per Capita (USD)"</span>,</span>
-<span id="cb23-35"><a href="#cb23-35" aria-hidden="true" tabindex="-1"></a>                  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(gdp_by_continent<span class="sc">$</span>GDP.per.capita) <span class="sc">*</span> <span class="fl">1.1</span>))</span>
-<span id="cb23-36"><a href="#cb23-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-37"><a href="#cb23-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Add continent names under bars</span></span>
-<span id="cb23-38"><a href="#cb23-38" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(gdp_by_continent<span class="sc">$</span>Continent, <span class="at">at =</span> midpts, <span class="at">side =</span> <span class="dv">1</span>, <span class="at">line =</span> <span class="fl">0.5</span>, <span class="at">cex =</span> <span class="fl">0.8</span>)</span>
-<span id="cb23-39"><a href="#cb23-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-40"><a href="#cb23-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Add GDP values inside bars</span></span>
-<span id="cb23-41"><a href="#cb23-41" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(midpts, gdp_by_continent<span class="sc">$</span>GDP.per.capita <span class="sc">/</span> <span class="dv">2</span>,</span>
-<span id="cb23-42"><a href="#cb23-42" aria-hidden="true" tabindex="-1"></a>     <span class="at">labels =</span> <span class="fu">round</span>(gdp_by_continent<span class="sc">$</span>GDP.per.capita, <span class="dv">0</span>),</span>
-<span id="cb23-43"><a href="#cb23-43" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"white"</span>, <span class="at">cex =</span> <span class="fl">0.8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aggregate mean GDP per capita by continent</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>gdp_by_continent <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(<span class="st">`</span><span class="at">GDP.per.capita....</span><span class="st">`</span> <span class="sc">~</span> Continent,</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">data =</span> hpi,</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">FUN =</span> mean,</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>                              <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename columns for convenience</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(gdp_by_continent) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Continent"</span>, <span class="st">"GDP.per.capita"</span>)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 🗺️ Map numeric continent codes to names</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>continent_names <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Latin America"</span>,</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"N. America &amp; Oceania"</span>,</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Western Europe"</span>,</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>  <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Middle East"</span>,</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">"5"</span> <span class="ot">=</span> <span class="st">"Africa"</span>,</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>  <span class="st">"6"</span> <span class="ot">=</span> <span class="st">"South Asia"</span>,</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>  <span class="st">"7"</span> <span class="ot">=</span> <span class="st">"Eastern Europe &amp; Central Asia"</span>,</span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>  <span class="st">"8"</span> <span class="ot">=</span> <span class="st">"East Asia"</span></span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace codes with readable names</span></span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>gdp_by_continent<span class="sc">$</span>Continent <span class="ot">&lt;-</span> continent_names[<span class="fu">as.character</span>(gdp_by_continent<span class="sc">$</span>Continent)]</span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort continents by GDP (descending)</span></span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>gdp_by_continent <span class="ot">&lt;-</span> gdp_by_continent[<span class="fu">order</span>(gdp_by_continent<span class="sc">$</span>GDP.per.capita, <span class="at">decreasing =</span> <span class="cn">TRUE</span>), ]</span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- Barplot ----</span></span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>))  <span class="co"># more space at bottom</span></span>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a>midpts <span class="ot">&lt;-</span> <span class="fu">barplot</span>(gdp_by_continent<span class="sc">$</span>GDP.per.capita,</span>
+<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a>                  <span class="at">names.arg =</span> gdp_by_continent<span class="sc">$</span>Continent,</span>
+<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a>                  <span class="at">col =</span> <span class="fu">gray</span>(<span class="fu">seq</span>(<span class="fl">0.3</span>, <span class="fl">0.8</span>, <span class="at">length.out =</span> <span class="fu">nrow</span>(gdp_by_continent))),</span>
+<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a>                  <span class="at">main =</span> <span class="st">"Average GDP per Capita by Continent"</span>,</span>
+<span id="cb21-34"><a href="#cb21-34" aria-hidden="true" tabindex="-1"></a>                  <span class="at">ylab =</span> <span class="st">"Avg GDP per Capita (USD)"</span>,</span>
+<span id="cb21-35"><a href="#cb21-35" aria-hidden="true" tabindex="-1"></a>                  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(gdp_by_continent<span class="sc">$</span>GDP.per.capita) <span class="sc">*</span> <span class="fl">1.1</span>),</span>
+<span id="cb21-36"><a href="#cb21-36" aria-hidden="true" tabindex="-1"></a>                  <span class="at">las =</span> <span class="dv">2</span>)  <span class="co"># rotate labels vertically</span></span>
+<span id="cb21-37"><a href="#cb21-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-38"><a href="#cb21-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Add GDP values inside bars</span></span>
+<span id="cb21-39"><a href="#cb21-39" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(midpts, gdp_by_continent<span class="sc">$</span>GDP.per.capita <span class="sc">/</span> <span class="dv">2</span>,</span>
+<span id="cb21-40"><a href="#cb21-40" aria-hidden="true" tabindex="-1"></a>     <span class="at">labels =</span> <span class="fu">round</span>(gdp_by_continent<span class="sc">$</span>GDP.per.capita, <span class="dv">0</span>),</span>
+<span id="cb21-41"><a href="#cb21-41" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"white"</span>, <span class="at">cex =</span> <span class="fl">0.8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="assignment2_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Boxplot</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Load Data ---</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>HPI_dataset <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"C:/Users/marti/OneDrive/Desktop/test/HPI_dataset.xlsx"</span>, </span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">sheet =</span> <span class="st">"1. All countries"</span>, </span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">range =</span> <span class="st">"A9:L158"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>New names:
+• `` -&gt; `...4`</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>hpi <span class="ot">&lt;-</span> HPI_dataset</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Make column names R-safe</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(hpi) <span class="ot">&lt;-</span> <span class="fu">make.names</span>(<span class="fu">names</span>(hpi))</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 🗺️ Map numeric continent codes to names</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>continent_names <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Latin America"</span>,</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"N. America &amp; Oceania"</span>,</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"W. Europe"</span>,</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Middle East"</span>,</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">"5"</span> <span class="ot">=</span> <span class="st">"Africa"</span>,</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">"6"</span> <span class="ot">=</span> <span class="st">"S. Asia"</span>,</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">"7"</span> <span class="ot">=</span> <span class="st">"E. Europe &amp; C. Asia"</span>,</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>  <span class="st">"8"</span> <span class="ot">=</span> <span class="st">"E. Asia"</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply mapping to replace numbers with names</span></span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>hpi<span class="sc">$</span>Continent <span class="ot">&lt;-</span> continent_names[<span class="fu">as.character</span>(hpi<span class="sc">$</span>Continent)]</span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Boxplot: Life Expectancy by Continent ---</span></span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>))  <span class="co"># add space for labels</span></span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(hpi<span class="sc">$</span><span class="st">`</span><span class="at">Life.Expectancy..years.</span><span class="st">`</span> <span class="sc">~</span> hpi<span class="sc">$</span>Continent,</span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">gray</span>(<span class="fu">seq</span>(<span class="fl">0.3</span>, <span class="fl">0.8</span>, <span class="at">length.out =</span> <span class="fu">length</span>(<span class="fu">unique</span>(hpi<span class="sc">$</span>Continent)))),</span>
+<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Life Expectancy by Continent"</span>,</span>
+<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Life Expectancy (Years)"</span>,</span>
+<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">""</span>,</span>
+<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a>        <span class="at">las =</span> <span class="dv">2</span>,   <span class="co"># rotate x-axis labels</span></span>
+<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a>        <span class="at">outline =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -442,23 +469,53 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p><strong>Boxplot</strong></p>
+<p><strong>Persp</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Boxplot</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">3</span>, <span class="fl">4.1</span>, <span class="dv">2</span>, <span class="dv">0</span>))</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(len <span class="sc">~</span> dose, <span class="at">data =</span> ToothGrowth,</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">boxwex =</span> <span class="fl">0.25</span>, <span class="at">at =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span> <span class="sc">-</span> <span class="fl">0.2</span>,</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">subset=</span> supp <span class="sc">==</span> <span class="st">"VC"</span>, <span class="at">col=</span><span class="st">"white"</span>,</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">""</span>,</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">"tooth length"</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">35</span>))</span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="st">"Vitamin C dose (mg)"</span>, <span class="at">side=</span><span class="dv">1</span>, <span class="at">line=</span><span class="fl">2.5</span>, <span class="at">cex=</span><span class="fl">0.8</span>)</span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(len <span class="sc">~</span> dose, <span class="at">data =</span> ToothGrowth, <span class="at">add =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">boxwex =</span> <span class="fl">0.25</span>, <span class="at">at =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span> <span class="sc">+</span> <span class="fl">0.2</span>,</span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">subset=</span> supp <span class="sc">==</span> <span class="st">"OJ"</span>)</span>
-<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="fl">1.5</span>, <span class="dv">9</span>, <span class="fu">c</span>(<span class="st">"Ascorbic acid"</span>, <span class="st">"Orange juice"</span>), </span>
-<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="fu">c</span>(<span class="st">"white"</span>, <span class="st">"gray"</span>), </span>
-<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">bty=</span><span class="st">"n"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>hpi <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"C:/Users/marti/OneDrive/Desktop/test/HPI_dataset.xlsx"</span>, </span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">sheet =</span> <span class="st">"1. All countries"</span>, </span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">range =</span> <span class="st">"A9:L158"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>New names:
+• `` -&gt; `...4`</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make R-safe column names</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(hpi) <span class="ot">&lt;-</span> <span class="fu">make.names</span>(<span class="fu">names</span>(hpi))</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Pick variables</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> hpi<span class="sc">$</span>GDP.per.capita....</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> hpi<span class="sc">$</span>Carbon.Footprint..tCO2e.</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> hpi<span class="sc">$</span>Life.Expectancy..years.</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove missing values</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>complete_data <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(<span class="fu">data.frame</span>(x, y, z))</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Define grid for persp()</span></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>x_seq <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">min</span>(complete_data<span class="sc">$</span>x), <span class="fu">max</span>(complete_data<span class="sc">$</span>x), <span class="at">length =</span> <span class="dv">30</span>)</span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>y_seq <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">min</span>(complete_data<span class="sc">$</span>y), <span class="fu">max</span>(complete_data<span class="sc">$</span>y), <span class="at">length =</span> <span class="dv">30</span>)</span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Interpolate z values on the grid</span></span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>z_grid <span class="ot">&lt;-</span> <span class="fu">outer</span>(x_seq, y_seq, <span class="cf">function</span>(a, b) {</span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Use a smooth function (linear model for simplicity)</span></span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>  model <span class="ot">&lt;-</span> <span class="fu">lm</span>(z <span class="sc">~</span> x <span class="sc">+</span> y, <span class="at">data =</span> complete_data)</span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">predict</span>(model, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">x =</span> a, <span class="at">y =</span> b))</span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Fix NA values</span></span>
+<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a>z_grid[<span class="fu">is.na</span>(z_grid)] <span class="ot">&lt;-</span> <span class="fu">min</span>(complete_data<span class="sc">$</span>z, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">bg =</span> <span class="st">"white"</span>, <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a><span class="fu">persp</span>(x_seq, y_seq, z_grid,</span>
+<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a>      <span class="at">theta =</span> <span class="dv">30</span>, <span class="at">phi =</span> <span class="dv">25</span>,</span>
+<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a>      <span class="at">expand =</span> <span class="fl">0.6</span>,</span>
+<span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a>      <span class="at">col =</span> <span class="st">"skyblue3"</span>,</span>
+<span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a>      <span class="at">shade =</span> <span class="fl">0.5</span>,</span>
+<span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a>      <span class="at">xlab =</span> <span class="st">"GDP per Capita"</span>,</span>
+<span id="cb27-34"><a href="#cb27-34" aria-hidden="true" tabindex="-1"></a>      <span class="at">ylab =</span> <span class="st">"Ecological Footprint (gha)"</span>,</span>
+<span id="cb27-35"><a href="#cb27-35" aria-hidden="true" tabindex="-1"></a>      <span class="at">zlab =</span> <span class="st">"Life Expectancy (years)"</span>,</span>
+<span id="cb27-36"><a href="#cb27-36" aria-hidden="true" tabindex="-1"></a>      <span class="at">ticktype =</span> <span class="st">"detailed"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -466,41 +523,60 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="fl">5.1</span>, <span class="fl">4.1</span>, <span class="fl">4.1</span>, <span class="fl">2.1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><strong>Persp</strong></p>
+<p><strong>Piechart</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Persp</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="at">length=</span> <span class="dv">30</span>)</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x,y) { r <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x<span class="sc">^</span><span class="dv">2</span><span class="sc">+</span>y<span class="sc">^</span><span class="dv">2</span>); <span class="dv">10</span> <span class="sc">*</span> <span class="fu">sin</span>(r)<span class="sc">/</span>r }</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">outer</span>(x, y, f)</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>z[<span class="fu">is.na</span>(z)] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 0.5 to include z axis label</span></span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="at">lwd=</span><span class="fl">0.5</span>)</span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="fu">persp</span>(x, y, z, <span class="at">theta =</span> <span class="dv">30</span>, <span class="at">phi =</span> <span class="dv">30</span>, </span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">expand =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>HPI_dataset <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"C:/Users/marti/OneDrive/Desktop/test/HPI_dataset.xlsx"</span>, </span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">sheet =</span> <span class="st">"1. All countries"</span>, </span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">range =</span> <span class="st">"A9:L158"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>New names:
+• `` -&gt; `...4`</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>hpi <span class="ot">&lt;-</span> HPI_dataset</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(hpi) <span class="ot">&lt;-</span> <span class="fu">make.names</span>(<span class="fu">names</span>(hpi))  <span class="co"># make column names R-safe</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Map numeric continent codes to names</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>continent_names <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Latin America"</span>,</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"N. America &amp; Oceania"</span>,</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"W. Europe"</span>,</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Middle East"</span>,</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"5"</span> <span class="ot">=</span> <span class="st">"Africa"</span>,</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">"6"</span> <span class="ot">=</span> <span class="st">"S. Asia"</span>,</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">"7"</span> <span class="ot">=</span> <span class="st">"E. Europe &amp; C. Asia"</span>,</span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">"8"</span> <span class="ot">=</span> <span class="st">"E. Asia"</span></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace numeric codes with names</span></span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>hpi<span class="sc">$</span>Continent <span class="ot">&lt;-</span> continent_names[<span class="fu">as.character</span>(hpi<span class="sc">$</span>Continent)]</span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Aggregate total carbon footprint per continent</span></span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a>carbon_by_continent <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(Carbon.Footprint..tCO2e. <span class="sc">~</span> Continent,</span>
+<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">data =</span> hpi,</span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">FUN =</span> sum,</span>
+<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort for cleaner labeling</span></span>
+<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a>carbon_by_continent <span class="ot">&lt;-</span> carbon_by_continent[<span class="fu">order</span>(carbon_by_continent<span class="sc">$</span>Carbon.Footprint..tCO2e., <span class="at">decreasing =</span> <span class="cn">TRUE</span>), ]</span>
+<span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Create named vector for pie()</span></span>
+<span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a>pie.values <span class="ot">&lt;-</span> carbon_by_continent<span class="sc">$</span>Carbon.Footprint..tCO2e.</span>
+<span id="cb30-30"><a href="#cb30-30" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(pie.values) <span class="ot">&lt;-</span> carbon_by_continent<span class="sc">$</span>Continent</span>
+<span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-32"><a href="#cb30-32" aria-hidden="true" tabindex="-1"></a><span class="co"># 🎨 Pie chart</span></span>
+<span id="cb30-33"><a href="#cb30-33" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="at">xpd =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb30-34"><a href="#cb30-34" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(pie.values,</span>
+<span id="cb30-35"><a href="#cb30-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="fu">gray</span>(<span class="fu">seq</span>(<span class="fl">0.3</span>, <span class="fl">1.0</span>, <span class="at">length.out =</span> <span class="fu">length</span>(pie.values))),</span>
+<span id="cb30-36"><a href="#cb30-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">main =</span> <span class="st">"Total Carbon Footprint by Continent (tCO₂e)"</span>,</span>
+<span id="cb30-37"><a href="#cb30-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">clockwise =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
 <p><img src="assignment2_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="fl">5.1</span>, <span class="fl">4.1</span>, <span class="fl">4.1</span>, <span class="fl">2.1</span>), <span class="at">lwd=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><strong>Piechart</strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Piechart</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="at">xpd=</span><span class="cn">FALSE</span>, <span class="at">cex=</span><span class="fl">0.5</span>)</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>pie.sales <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.12</span>, <span class="fl">0.3</span>, <span class="fl">0.26</span>, <span class="fl">0.16</span>, <span class="fl">0.04</span>, <span class="fl">0.12</span>)</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(pie.sales) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Blueberry"</span>, <span class="st">"Cherry"</span>,</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>                      <span class="st">"Apple"</span>, <span class="st">"Boston Cream"</span>, <span class="st">"Other"</span>, <span class="st">"Vanilla"</span>)</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(pie.sales, <span class="at">col =</span> <span class="fu">gray</span>(<span class="fu">seq</span>(<span class="fl">0.3</span>,<span class="fl">1.0</span>,<span class="at">length=</span><span class="dv">6</span>))) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="assignment2_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
