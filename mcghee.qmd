@@ -1,0 +1,14 @@
+---
+title: "A Review of Geoff McGhee’s Journalism in the Age of Data"
+format: html
+---
+
+[**Septtember 24th, 2025**]{.underline}
+
+**Data in Journalism vs. Academia**
+
+By Joseph Martinez
+
+In McGhee’s documentary film, “Journalism in the Age of Data,” McGhee has several graphic designers and data journalists at the forefront of the infographic revolution that began at the dawn of the 21^st^ century. Several journalists, such as The New York Times’ Amanda Cox and BBC’s Scott Byrne-Fraser, can showcase how impactful creative data visualizations can be in helping guide the members of the public through information that would otherwise be too abstract or overwhelming to grasp. Cox was able to clearly show the impact race, sex, and education played on unemployment rates over time through an interactive graph that was captivating in its subject matter, approachable in its simplicity, and most importantly impactful because of how it incentivized the reader to interact with the graph to gain the information. Bryne-Fraser expands upon this need for news visualizations to be interactive, leading the reader to the information in steps, starting small, then expanding out. Else, the whole visualization may still overwhelm the reader. This is a concept expanded upon by Nigel Holmes, who explained how impactful visualization becomes once placed in a video format, leading a viewer towards the findings of data.
+
+Much of McGhee's second half of the film explores the clash between two different aspects of journalism, the mission to keep the public informed and the need to create profit. Visualizations can often be beautiful but pointless. Sarah Slobin tells the story of a visualization of the Fortune 500’s revenue designed to create the image of a flower; however, there was almost no practical use one could obtain from the flower—it just looked pretty. Stunning visuals over useful ones are often the ones to be rewarded within the infographic community, as pointed out by journalist Alberto Cairo. And even Bryne-Fraser talks about collaborating more with the television news graphics team at BBC, whom he admits “has a huge skill base in motion graphics, but not necessarily a huge skill base in information graphics.” This runs counter to data visualization in academia, where the primary concern is conveying the data effectively. The message, nor the integrity of the underlying data, cannot be sacrificed to make an academic visualization look more appealing, although a pleasant-looking graphic is still paramount to an academic data visualization.

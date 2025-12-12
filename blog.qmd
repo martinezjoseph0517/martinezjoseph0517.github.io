@@ -1,0 +1,10 @@
+---
+title: "Blog"
+format: html
+---
+
+Posts For EPPS 6356 Data Visualization:
+
+-   [Teaching to See - September 10th, 2025](druckrey.qmd)
+-   [Journalism in the Age of Data - September 24th, 2025](mcghee.qmd)
+-   

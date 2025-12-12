@@ -1,0 +1,11 @@
+---
+title: "Coursework"
+format: html
+editor: visual
+---
+
+Welcome to my coursework page for EPPS 6356:
+
+-   [Blog](blog.qmd)
+-   [Assignments](assignments.qmd)
+-   [Group Project](groupproject.qmd)

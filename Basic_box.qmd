@@ -1,0 +1,136 @@
+---
+title: "Base Boxplots"
+format: html
+---
+
+**Base Plot:**
+
+This plot is made using ggplot2 and viridis to give the plot a clean look. No real data is being used in the plot.
+
+```{r}
+# Install packages if needed
+# Load libraries
+library(ggplot2)
+library(viridis)
+
+# Example data
+set.seed(123)
+data <- data.frame(
+  category = rep(c("A", "B", "C", "D", "E"), each = 20),
+  value = c(rnorm(20, 50, 10),
+            rnorm(20, 55, 12),
+            rnorm(20, 45, 8),
+            rnorm(20, 60, 15),
+            rnorm(20, 50, 5))
+)
+
+# Basic vertical boxplot
+ggplot(data, aes(x = category, y = value, fill = category)) +
+  geom_boxplot(color = "black") +            # black outline
+  scale_fill_viridis(discrete = TRUE, option = "D") +  # viridis palette for discrete categories
+  labs(
+    title = "Vertical Boxplot",
+    x = "Category",
+    y = "Value"
+  ) +
+  theme_minimal()
+
+```
+
+**Plot with Work Color Palette:**
+
+For work, I incorporate a custom palette for my plots.
+
+```{r}
+library(ggplot2)
+
+# Example data
+set.seed(123)
+data <- data.frame(
+  category = rep(c("A", "B", "C", "D", "E"), each = 20),
+  value = c(rnorm(20, 50, 10),
+            rnorm(20, 55, 12),
+            rnorm(20, 45, 8),
+            rnorm(20, 60, 15),
+            rnorm(20, 50, 5))
+)
+
+# Your custom palette
+work_viridis <- colorRampPalette(c("#021C49","#1F3657","#3C5C7C",
+                                   "#7FA0C0", "#E9EEF3", "#F3F7FF"))
+box_colors <- work_viridis(length(unique(data$category)))  # one color per category
+
+# Boxplot using custom palette
+ggplot(data, aes(x = category, y = value, fill = category)) +
+  geom_boxplot(color = "#021C49") +          # outline in darkest color
+  scale_fill_manual(values = box_colors) +   # apply custom palette
+  labs(
+    title = "Vertical Boxplot with Custom Palette",
+    x = "Category",
+    y = "Value"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.background = element_rect(fill = "#F3F7FF", color = NA),
+    panel.background = element_rect(fill = "#F3F7FF", color = NA),
+    panel.grid.major = element_line(color = "#021C49", linewidth = 0.3),
+    panel.grid.minor = element_line(color = "#021C49", linewidth = 0.1),
+    axis.title = element_text(color = "#021C49", size = 12),
+    axis.text = element_text(color = "#021C49", size = 10),
+    plot.title = element_text(color = "#021C49", size = 14, face = "bold"),
+    legend.title = element_text(color = "#021C49"),
+    legend.text  = element_text(color = "#021C49")
+  )
+
+```
+
+**Plot with Primary & Secondary Work Palettes to Create Contrasts:**
+
+```{r}
+library(ggplot2)
+
+# Example data
+set.seed(123)
+data <- data.frame(
+  category = rep(c("A", "B", "C", "D", "E"), each = 20),
+  value = c(rnorm(20, 50, 10),
+            rnorm(20, 55, 12),
+            rnorm(20, 45, 8),
+            rnorm(20, 60, 15),
+            rnorm(20, 50, 5))
+)
+
+# Theme palette
+work_viridis <- colorRampPalette(c("#021C49","#1F3657","#3C5C7C",
+                                   "#7FA0C0", "#E9EEF3", "#F3F7FF"))
+theme_colors <- work_viridis(256)
+bg_light <- theme_colors[256]   # light background
+line_dark <- theme_colors[1]  # dark text/lines
+
+# Box fill palette
+work2_viridis <- colorRampPalette(c("#55401C", "#7f602A", "#A98038","#D4B57F","#F1E6Df"))
+box_colors <- work2_viridis(length(unique(data$category)))  # one color per category
+
+# Boxplot with custom palettes
+ggplot(data, aes(x = category, y = value, fill = category)) +
+  geom_boxplot(color = line_dark) +                  # outline in dark theme color
+  scale_fill_manual(values = box_colors) +          # assign separate palette to boxes
+  labs(
+    title = "Vertical Boxplot with Dual Palettes",
+    x = "Category",
+    y = "Value"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.background = element_rect(fill = bg_light, color = NA),
+    panel.background = element_rect(fill = bg_light, color = NA),
+    panel.grid.major = element_line(color = line_dark, linewidth = 0.3),
+    panel.grid.minor = element_line(color = line_dark, linewidth = 0.1),
+    axis.title = element_text(color = line_dark, size = 12),
+    axis.text = element_text(color = line_dark, size = 10),
+    plot.title = element_text(color = line_dark, size = 14, face = "bold"),
+    legend.title = element_text(color = line_dark),
+    legend.text  = element_text(color = line_dark)
+  )
+
+```

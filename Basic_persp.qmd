@@ -1,0 +1,270 @@
+---
+title: "Base Perspective Diagrams"
+format: html
+---
+
+**Base 2D Plot:**
+
+This plot is made using ggplot2 and viridis to give the plot a clean look. No real data is being used in the plot.
+
+```{r}
+# Install packages if needed
+# Load libraries
+library(ggplot2)
+library(viridis)
+
+# Example data
+set.seed(123)
+data <- data.frame(
+  x = rnorm(200),
+  y = rnorm(200),
+  z = rnorm(200)  # this will control color/size for perspective effect
+)
+
+# Perspective-like scatter plot
+ggplot(data, aes(x = x, y = y, color = z, size = z)) +
+  geom_point(alpha = 0.8) +                      # points with transparency
+  scale_color_viridis(option = "D") +            # viridis color scale
+  labs(
+    title = "2D Perspective Scatter Plot",
+    x = "X Axis",
+    y = "Y Axis",
+    color = "Z Value",
+    size = "Z Value"
+  ) +
+  theme_minimal()
+
+
+```
+
+**Plot with Work Color Palette:**
+
+For work, I incorporate a custom palette for my plots.
+
+```{r}
+library(ggplot2)
+
+# Example data
+set.seed(123)
+data <- data.frame(
+  x = rnorm(200),
+  y = rnorm(200),
+  z = rnorm(200)  # this will control color/size for perspective effect
+)
+
+# Your custom palette
+work_viridis <- colorRampPalette(c("#021C49","#1F3657","#3C5C7C",
+                                   "#7FA0C0", "#E9EEF3", "#F3F7FF"))
+custom_colors <- work_viridis(256)  # generate 256 colors
+
+# Perspective-like scatter plot with custom palette
+ggplot(data, aes(x = x, y = y, color = z, size = z)) +
+  geom_point(alpha = 0.8) +                        # points with transparency
+  scale_color_gradientn(colors = custom_colors) +  # use custom palette
+  labs(
+    title = "2D Perspective Scatter Plot with Custom Palette",
+    x = "X Axis",
+    y = "Y Axis",
+    color = "Z Value",
+    size = "Z Value"
+  ) +
+  theme_minimal()
+
+```
+
+**Plot with Primary & Secondary Work Palettes to Create Contrasts:**
+
+```{r}
+library(ggplot2)
+
+# Example data
+set.seed(123)
+data <- data.frame(
+  x = rnorm(200),
+  y = rnorm(200),
+  z = rnorm(200)  # this will control color/size for perspective effect
+)
+
+# Theme palette
+work_viridis <- colorRampPalette(c("#021C49","#1F3657","#3C5C7C",
+                                   "#7FA0C0", "#E9EEF3", "#F3F7FF"))
+theme_colors <- work_viridis(256)
+bg_light <- theme_colors[256]   # light background
+line_dark <- theme_colors[1]  # dark text/lines
+
+# Data palette
+work2_viridis <- colorRampPalette(c("#55401C", "#7f602A", "#A98038","#D4B57F","#F1E6Df"))
+data_colors <- work2_viridis(256)
+
+# 2D Perspective-like scatter plot
+ggplot(data, aes(x = x, y = y, color = z, size = z)) +
+  geom_point(alpha = 0.8) +
+  scale_color_gradientn(colors = data_colors) +  # data points use work2_viridis
+  labs(
+    title = "2D Perspective Scatter Plot with Dual Palettes",
+    x = "X Axis",
+    y = "Y Axis",
+    color = "Z Value",
+    size = "Z Value"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.background = element_rect(fill = bg_light, color = NA),
+    panel.background = element_rect(fill = bg_light, color = NA),
+    panel.grid.major = element_line(color = line_dark, linewidth = 0.3),
+    panel.grid.minor = element_line(color = line_dark, linewidth = 0.1),
+    axis.title = element_text(color = line_dark, size = 12),
+    axis.text = element_text(color = line_dark, size = 10),
+    plot.title = element_text(color = line_dark, size = 14, face = "bold"),
+    legend.title = element_text(color = line_dark),
+    legend.text  = element_text(color = line_dark)
+  )
+
+```
+
+**Base 3D Plot:**
+
+This plot is made using ggplot2 and viridis to give the plot a clean look. No real data is being used in the plot.
+
+```{r}
+# Install packages if needed
+# Load libraries
+library(plotly)
+library(viridis)
+
+# Example data
+set.seed(123)
+data <- data.frame(
+  x = rnorm(200),
+  y = rnorm(200),
+  z = rnorm(200)
+)
+
+# Generate a viridis color palette based on z
+colors <- viridis(200)
+
+# 3D Scatter Plot
+plot_ly(
+  data, 
+  x = ~x, y = ~y, z = ~z, 
+  type = "scatter3d", 
+  mode = "markers",
+  marker = list(
+    size = 5,
+    color = ~z,          # color by z
+    colorscale = 'Viridis',  # viridis colorscale
+    showscale = TRUE
+  )
+) %>%
+  layout(
+    scene = list(
+      xaxis = list(title = "X Axis"),
+      yaxis = list(title = "Y Axis"),
+      zaxis = list(title = "Z Axis")
+    ),
+    title = "3D Scatter Plot with Viridis Colors"
+  )
+
+```
+
+**Plot with Work Color Palette:**
+
+For work, I incorporate a custom palette for my plots.
+
+```{r}
+library(plotly)
+
+# Example data
+set.seed(123)
+data <- data.frame(
+  x = rnorm(200),
+  y = rnorm(200),
+  z = rnorm(200)
+)
+
+# Custom theme palette
+work_viridis <- colorRampPalette(c("#021C49","#1F3657","#3C5C7C",
+                                   "#7FA0C0", "#E9EEF3", "#F3F7FF"))
+custom_colors <- work_viridis(256)  # generate 256 colors
+
+# Convert palette to Plotly colorscale format
+plotly_colorscale <- lapply(seq_along(custom_colors), function(i) {
+  c((i-1)/(length(custom_colors)-1), custom_colors[i])
+})
+
+# 3D Scatter Plot with custom colorscale
+plot_ly(
+  data, 
+  x = ~x, y = ~y, z = ~z, 
+  type = "scatter3d", 
+  mode = "markers",
+  marker = list(
+    size = 5,
+    color = ~z,                  # color by z
+    colorscale = plotly_colorscale,  # use custom palette
+    showscale = TRUE
+  )
+) %>%
+  layout(
+    scene = list(
+      xaxis = list(title = "X Axis"),
+      yaxis = list(title = "Y Axis"),
+      zaxis = list(title = "Z Axis")
+    ),
+    title = "3D Scatter Plot with Custom Theme Palette"
+  )
+
+```
+
+**Plot with Primary & Secondary Work Palettes to Create Contrasts:**
+
+```{r}
+library(plotly)
+
+# Example data
+set.seed(123)
+data <- data.frame(
+  x = rnorm(200),
+  y = rnorm(200),
+  z = rnorm(200)
+)
+
+# Theme palette (for background, grids, axes)
+work_viridis <- colorRampPalette(c("#021C49","#1F3657","#3C5C7C",
+                                   "#7FA0C0", "#E9EEF3", "#F3F7FF"))
+theme_colors <- work_viridis(256)
+bg_light <- theme_colors[256]   # light background
+line_dark <- theme_colors[1]  # dark axes/grid lines
+
+# Data palette (for points)
+work2_viridis <- colorRampPalette(c("#55401C", "#7f602A", "#A98038","#D4B57F","#F1E6Df"))
+data_colors <- work2_viridis(256)
+
+# Convert data palette to Plotly colorscale format
+data_colorscale <- lapply(seq_along(data_colors), function(i) {
+  c((i-1)/(length(data_colors)-1), data_colors[i])
+})
+
+# 3D Scatter Plot with dual palettes
+plot_ly(
+  data, 
+  x = ~x, y = ~y, z = ~z, 
+  type = "scatter3d", 
+  mode = "markers",
+  marker = list(
+    size = 5,
+    color = ~z,                   # color by z
+    colorscale = data_colorscale, # use work2_viridis for points
+    showscale = TRUE
+  )
+) %>%
+  layout(
+    scene = list(
+      xaxis = list(title = "X Axis", backgroundcolor = bg_light, gridcolor = line_dark, linecolor = line_dark, showbackground = TRUE),
+      yaxis = list(title = "Y Axis", backgroundcolor = bg_light, gridcolor = line_dark, linecolor = line_dark, showbackground = TRUE),
+      zaxis = list(title = "Z Axis", backgroundcolor = bg_light, gridcolor = line_dark, linecolor = line_dark, showbackground = TRUE)
+    ),
+    paper_bgcolor = bg_light,  # overall plot background
+    title = "3D Scatter Plot with Dual Palettes"
+  )
+```

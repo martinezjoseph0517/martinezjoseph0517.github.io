@@ -1,0 +1,39 @@
+---
+title: "Tourism Signal Check"
+subtitle: "by Biswas, Martinez, & Tran"
+format: 
+  html:
+    theme: lux
+    css: styles.css
+
+execute:
+  echo: false
+---
+
+::: big-iframe
+<img src="TourismPhoto.jpg" width="100%"/>
+:::
+
+***New York in Detail***
+
+::: big-iframe
+<iframe src="https://hunghtran.shinyapps.io/NewYorkTourism/">
+
+</iframe>
+:::
+
+***California in Detail***
+
+::: big-iframe
+<iframe src="https://martinez2k18.shinyapps.io/shinycaltourism/">
+
+</iframe>
+:::
+
+***Tourism Sentiment***
+
+::: big-iframe
+<iframe src="https://tanmoybiswas.shinyapps.io/shiny_app/">
+
+</iframe>
+:::

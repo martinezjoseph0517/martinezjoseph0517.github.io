@@ -1,0 +1,32 @@
+---
+title: "CV & Resume"
+format: html
+---
+
+**Curriculum Vitae**
+
+You can [download my CV here](Martinez,%20Joseph%20-%20CV.pdf){target="_blank"}.
+
+<details>
+
+<summary><strong>Or Click to Show/Hide CV</strong></summary>
+
+<iframe src="Martinez, Joseph - CV.pdf" width="100%" height="800px" style="border: none; margin-top: 1em;">
+
+</iframe>
+
+</details>
+
+**Resume**
+
+You can [download my Resume here](Martinez,%20Joseph%20-%20Resume.pdf){target="_blank"}.
+
+<details>
+
+<summary><strong>Or Click to Show/Hide Resume</strong></summary>
+
+<iframe src="Martinez, Joseph - Resume.pdf" width="100%" height="800px" style="border: none; margin-top: 1em;">
+
+</iframe>
+
+</details>

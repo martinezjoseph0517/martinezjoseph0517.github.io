@@ -1,0 +1,62 @@
+---
+title: "Assignment 3"
+format: html
+---
+
+**October 8th, 2025**
+
+```{r}
+### Libraries
+library (ggplot2)
+library (dplyr)
+library (lubridate)
+library (scales)
+library (tidyverse)
+
+owidall <- read.csv("https://raw.githubusercontent.com/owid/covid-19-data/refs/heads/master/public/data/owid-covid-data.csv")
+
+## Deselect cases/rows with OWID
+owidall <- owidall[!grepl("^OWID", owidall$iso_code), ]
+
+# Subset by continent: Europe
+owideu <- subset(owidall, continent == "Europe")
+
+
+# Make sure the date column is in Date format
+owideu$date <- as.Date(owideu$date)
+
+# Filter out 0 Deaths
+
+# Outliers
+#outliers <- outliers %>%
+ #group_by(location, year) %>%
+  #filter ((location=="Spain" & year == "2020" & ))
+
+#labeling
+countries <- c("Germany", "Ukraine", "Spain")
+
+#Create the base ggplot
+#ggplot () +
+
+# Scatterplot: Daily COVID deaths in Europe
+plot(
+  owideu$date,
+  owideu$new_deaths,
+  xlab = "Date",
+  ylab = "Daily COVID Deaths",
+  main = "Daily COVID Deaths in Europe",
+  pch = 20,          # small diamonds to make a crisp plot.
+  col = "red",
+  family = "sans" # set to sans.
+)
+
+# Custom x-axis: month-year
+axis(
+  1,
+  at = seq(min(owideu$date), max(owideu$date), by = "1 month"),
+  labels = format(seq(min(owideu$date), max(owideu$date), by = "1 month"), "%m-%Y"),
+  las = 2  # rotate labels vertically
+ )
+scale_y_continuous(breaks = c (0, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000), limits =c (0, 10000),
+                   labels = c(0, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000))
+```

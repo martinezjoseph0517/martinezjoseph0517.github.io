@@ -1,0 +1,375 @@
+---
+title: "Assignment 4"
+format: 
+  html:
+    theme: lux
+    css: styles.css
+   
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+**October 10th, 2025**
+
+**Chart 1 - Variable-Width Column Chart** **of Migrant share of population (%)**
+
+```{r}
+#| label: data-setup
+#| echo: false
+#| massage: false
+#| warning: false
+#| output: false
+
+
+# import libraries
+library(WDI); library(tidyverse); library(janitor); library(countrycode); library(ggplot2)
+
+# pull the data
+migration_raw <- WDI(
+  country  = "all",
+  indicator = c(
+    migrants_total = "SM.POP.TOTL",
+    migrants_pct   = "SM.POP.TOTL.ZS"
+  ),
+  start = 2020, end = 2020, extra = TRUE
+)
+ 
+migration <- migration_raw %>%
+  clean_names() %>%
+  filter(region != "Aggregates") %>%
+  mutate(continent = countrycode(iso3c, "iso3c", "continent"))
+
+# population (2020) for width
+pop2020 <- WDI("all", "SP.POP.TOTL", start = 2020, end = 2020, extra = TRUE) |>
+  janitor::clean_names() |>
+  dplyr::select(iso3c, sp_pop_totl)
+ 
+# join to add population
+df <- migration |>
+  dplyr::select(iso3c, country, migrants_total, migrants_pct) |>
+  dplyr::left_join(pop2020, by = "iso3c") |>
+  dplyr::filter(!is.na(migrants_pct), !is.na(sp_pop_totl))
+```
+
+```{r}
+#| label: plot-vw
+#| echo: true
+#| massage: false
+#| fig-cap: "Variable-Width Column Chart"
+
+
+library(ggplot2)
+library(scales)
+library(dplyr)
+
+
+# Set up properties for the chart
+vw8 <- df |>
+  dplyr::slice_max(order_by = migrants_total, n = 8) |>
+  dplyr::mutate(
+    width_scaled = scales::rescale(sp_pop_totl, to = c(0.4, 1.0))  # keep small bars visible
+  ) |>
+  dplyr::arrange(dplyr::desc(migrants_pct)) |>
+  dplyr::rename(
+    `Abbr` = iso3c,
+    `Total Migrants` = migrants_total,
+    `% Migrants` = migrants_pct,
+    `Total Population` = sp_pop_totl
+  )
+vw8
+
+
+# Create Variable Width Column Chart
+p_vw <- ggplot(vw8, aes(x = reorder(country, `% Migrants`),
+                        y = `% Migrants`)) +
+  geom_col(aes(width = width_scaled), fill = "#54A24B") +
+  # Create the chart
+  scale_y_continuous(labels = label_number(accuracy = 0.1)) +
+  labs(
+    title = "Migrant % vs. Total Population (2020)",
+    subtitle = "Height = Migrant share of population (%); Width = Total population",
+    x = NULL,
+    y = "Migrant share of population (%)"
+  ) +
+  theme_minimal(base_family = "serif") +
+  theme(
+    plot.title.position = "plot",
+    panel.grid.minor = element_blank(),
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 8)
+  )
+
+p_vw
+```
+
+**Chart 2 - Table of** **Migrant Population by Country (2020)**
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+# Started with a basic data table using library(DT). Slowly made troubleshoots and edits consulting the following resources: 
+# - https://bookdown.org/kdonovan125/ibis_data_analysis_r4/working-with-tables-in-r.html
+# - https://forum.posit.co/
+# - chatgpt
+
+# Load libraries
+library(WDI)
+library(dplyr)
+library(janitor)
+library(countrycode)
+library(DT)
+
+# Pull migration data
+migration_raw <- WDI(
+  country  = "all",
+  indicator = c(
+    migrants_total = "SM.POP.TOTL",
+    migrants_pct   = "SM.POP.TOTL.ZS"
+  ),
+  start = 2020, end = 2020, extra = TRUE
+)
+
+migration <- migration_raw %>%
+  clean_names() %>%
+  filter(region != "Aggregates") %>%
+  mutate(continent = countrycode(iso3c, "iso3c", "continent"))
+
+# Population (2020)
+pop2020 <- WDI("all", "SP.POP.TOTL", start = 2020, end = 2020, extra = TRUE) %>%
+  clean_names() %>%
+  select(iso3c, sp_pop_totl)
+
+# Join datasets
+df <- migration %>%
+  select(iso3c, country, migrants_total, migrants_pct, continent) %>%
+  left_join(pop2020, by = "iso3c") %>%
+  filter(!is.na(migrants_pct), !is.na(sp_pop_totl))
+
+# Prepare display table with renamed columns
+display_df <- df %>%
+  select(country, continent, migrants_total, migrants_pct, sp_pop_totl) %>%
+  rename(
+    Country = country,
+    Continent = continent,
+    `Total Migrants` = migrants_total,
+    `% of Population Migrants` = migrants_pct,
+    `Total Population (2020)` = sp_pop_totl
+  )
+
+
+# Create interactive DT table (dark-mode)
+datatable(
+  display_df,
+  caption = "Table 1 — Migrant Population by Country (2020)",
+  options = list(pageLength = 20, scrollX = TRUE),
+  escape = FALSE,
+  class = "cell-border stripe hover"
+) %>%
+  formatStyle(
+    columns = names(display_df),
+    backgroundColor = "white",
+    color = "black"
+  )
+
+
+
+```
+
+**Chart 3 - Bar Charts of** **Global Migration Overview (2020)**
+
+```{r}
+#| echo: true
+#| message: false
+
+
+# To create this chart I took inspiration from analyst ___. I used their use of viridis as basis for this code.
+# I took the basis, used patchwork to post both charts side by side & used ChatGPT & forum.posit.co for guidance
+# to solve specific syntax errors.
+
+library(WDI)
+library(tidyverse)
+library(viridis)
+library(janitor)
+library(countrycode)
+library(ggplot2)
+library(scales)
+library(patchwork)
+
+#DATA
+# 2020 snapshot: migrants (count + %s) for all countries
+migration_raw <- WDI(
+  country  = "all",
+  indicator = c(
+    migrants_total = "SM.POP.TOTL",
+    migrants_pct   = "SM.POP.TOTL.ZS"
+  ),
+  start = 2020, end = 2020, extra = TRUE
+)
+
+migration <- migration_raw %>%
+  clean_names() %>%
+  filter(region != "Aggregates") %>% # remove World/income groups
+  mutate(continent = countrycode(iso3c, "iso3c", "continent"))
+
+
+# Summarize by continent (2020)
+
+  continent_summary <- migration %>%
+  group_by(continent) %>%
+  summarize(
+    avg_migrant_pct = mean(migrants_pct, na.rm = TRUE),
+    total_migrants = sum(migrants_total, na.rm = TRUE)
+  ) %>%
+  arrange(desc(total_migrants))
+  
+  continent_summary
+
+# Create dataset
+# Average migrant % per continent (2020)
+continent_summary_avg <- migration %>%
+  group_by(continent) %>%
+  summarize(avg_migrant_pct = mean(migrants_pct, na.rm = TRUE)) %>%
+  arrange(desc(avg_migrant_pct))
+
+continent_summary_avg
+
+# Replace NA with "N/A"
+continent_summary$continent <- ifelse(
+  is.na(continent_summary$continent),
+  "N/A",
+  continent_summary$continent
+)
+
+# Convert to factor with alphabetical levels
+continent_summary$continent <- factor(
+  continent_summary$continent,
+  levels = sort(unique(continent_summary$continent))
+)
+
+continent_levels <- c(setdiff(sort(unique(continent_summary$continent)), "N/A"), "N/A")
+continent_summary$continent <- factor(continent_summary$continent, levels = continent_levels)
+
+
+# Graph 1 Average Migrant %
+p1 <- ggplot(continent_summary, aes(x = continent, y = avg_migrant_pct, fill = continent)) +
+  geom_col(width = 0.7) +
+  geom_text(aes(label = paste0(round(avg_migrant_pct, 1), "%")),
+            vjust = -0.5, size = 4) +
+  scale_fill_viridis(discrete = TRUE, option = "E") +
+  labs(
+    title = "Average Migrant Percentage by Continent",
+    x = "",
+    y = "Average % of Population"
+  ) +
+  ylim(0, 100) +
+  theme_minimal(base_size = 12) +
+  theme(
+        legend.position = "none",
+        plot.title = element_text(size = 10, face = "bold")
+        )
+
+
+
+#Graph 2 Total Migrants
+p2 <- ggplot(continent_summary, aes(x = continent, y = total_migrants / 1e6, fill = continent)) +
+  geom_col(width = 0.7) +
+  geom_text(aes(label = paste0(round(total_migrants / 1e6, 1), "M")),
+            vjust = -0.5, size = 4) +
+  scale_fill_viridis(discrete = TRUE, option = "E") +
+  scale_y_continuous(limits = c(0, 90), breaks = seq(0, 90, 10)) +
+  labs(
+    title = "Total Migrant Population by Continent",
+    x = "",
+    y = "Total Migrants (millions)"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+        legend.position = "none",
+        plot.title = element_text(size = 10, face = "bold")
+        )
+
+#Final Product
+print((p1 + p2) + plot_annotation(title = "Global Migration Overview (2020)"))
+
+```
+
+**Chart 4 - Column Chart of** **Top 8 Countries by International Migrant Stock (2020)**
+
+```{r}
+
+options(dplyr.summarise.inform = FALSE)
+
+suppressPackageStartupMessages({
+  library(WDI)
+  library(tidyverse, warn.conflicts = FALSE)  # stops “masked from …” notes
+  library(janitor)
+  library(countrycode)
+  library(ggplot2)
+  library(scales)
+})
+
+```
+
+```{r}
+#| message: false
+#| warning: false
+
+migration_raw <- WDI(
+  country = "all",
+  indicator = c(
+    migrants_total = "SM.POP.TOTL",     # international migrants (count)
+    migrants_pct   = "SM.POP.TOTL.ZS"   # migrants as % of population
+  ),
+  start = 2020, end = 2020, extra = TRUE
+)
+
+migration <- migration_raw |>
+  clean_names() |>
+  filter(region != "Aggregates") |>
+  mutate(continent = countrycode(iso3c, "iso3c", "continent"))
+
+# Top 8 destinations by migrant COUNT
+top8 <- migration |>
+  filter(!is.na(migrants_total)) |>
+  slice_max(order_by = migrants_total, n = 8) |>
+  arrange(migrants_total) |>         # smallest → largest so bars rise L→R
+  mutate(country = factor(country, levels = country))
+```
+
+```{r}
+#| message: false
+#| warning: false
+
+light_green <- "#8BC34A"
+
+p_top8_v <- ggplot(top8, aes(x = country, y = migrants_total)) +
+  geom_col(fill = light_green) +
+  scale_y_continuous(
+    labels = label_number(scale_cut = cut_short_scale()),
+    expand = expansion(mult = c(0, 0.03))
+  ) +
+  labs(
+    title = "Top 8 Countries by International Migrant Stock (2020)",
+    subtitle = "Source: World Bank WDI (SM.POP.TOTL)",
+    x = NULL, y = "Migrant Stock (people)"
+  ) +
+  theme_minimal(base_family = "serif") +
+  theme(plot.title.position = "plot",
+        panel.grid.minor = element_blank(),
+        axis.text.x = element_text(angle = 45, hjust = 1))
+
+p_top8_v
+
+```
+
+```{r}
+#| message: false
+#| warning: false
+
+if (!dir.exists("figures")) dir.create("figures")
+ggsave("figures/tanmoy_chart4_vertical_lightgreen.png",
+       plot = p_top8_v, width = 10, height = 6, dpi = 300)
+
+```

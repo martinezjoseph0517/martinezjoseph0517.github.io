@@ -1,0 +1,54 @@
+---
+title: "Group Project"
+format: html
+---
+
+**Project Proposal**
+
+You can view and/or download our proposal here.
+
+<details>
+
+<summary><strong>Or Click to Show/Hide Proposal</strong></summary>
+
+<iframe src="Tanmoy Biswas_Project Proposal.pdf" width="100%" height="800px" style="border: none; margin-top: 1em;">
+
+</iframe>
+
+</details>
+
+**Proposal Presentation**
+
+You can view and/or download our proposal presentation here.
+
+<details>
+
+<summary><strong>Or Click to Show/Hide Presentation</strong></summary>
+
+<iframe src="Tanmoy Biswas _Proposal Presentation.pdf" width="100%" height="800px" style="border: none; margin-top: 1em;">
+
+</iframe>
+
+</details>
+
+**Sentiment Trend Analysis**
+
+-   [Web Crawler to Collect News Article Data](WebCrawler.qmd)
+
+**Final Presentation**
+
+-   [Link](FinalPresentation.qmd)
+
+**Final Paper**
+
+You can view and/or download our final paper.
+
+<details>
+
+<summary><strong>Or Click to Show/Hide Final</strong></summary>
+
+<iframe src="FinalPaper.pdf" width="100%" height="800px" style="border: none; margin-top: 1em;">
+
+</iframe>
+
+</details>

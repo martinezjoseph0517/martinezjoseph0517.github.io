@@ -1,0 +1,261 @@
+---
+title: "October 2nd, 2025"
+format: html
+---
+
+[**Assignment 2 (In Progress)**]{.underline}
+
+The following visualizations are done using data from the happy planet index [Explore the data - Happy Planet Index](https://happyplanetindex.org/countries/).
+
+**Basic Plot of Life Expectancy vs Carbon Footprint**
+
+```{r}
+### Basic Scatter Plot for Life Expectancy vs Carbon Footprint
+# Installing hpi & Load library
+
+
+library(readxl)
+HPI_dataset <- read_excel("C:/Users/marti/OneDrive/Desktop/test/HPI_dataset.xlsx", 
+    sheet = "1. All countries", 
+    range = "A9:L158")
+hpi <- HPI_dataset
+View(hpi)
+
+names(hpi)
+
+## Start plotting from basics 
+# Quick look at the variable names
+# names(hpi)
+
+# Clean up column names for easier reference (optional)
+colnames(hpi) <- make.names(colnames(hpi))
+
+# Extract the columns you need
+x <- hpi$`Life.Expectancy..years.`   # adjust name if slightly different
+y <- hpi$`Carbon.Footprint..tCO2e.`
+
+# Basic sanity check
+# head(cbind(x, y))
+
+# Create scatterplot
+plot(x, y,
+     main = "Life Expectancy vs Carbon Footprint",
+     xlab = "Life Expectancy (years)",
+     ylab = "Carbon Footprint (tCO₂e)",
+     pch = 19, col = "skyblue", cex = 1.3)
+
+
+# Exercise: Can you generate these charts individually?  Try these functions 
+# using another dataset. Be sure to work on the layout and margins
+```
+
+**Scatterplot**
+
+```{r}
+# Scatterplot
+# Note the incremental additions
+# Installing hpi & Load library
+library(readxl)
+HPI_dataset <- read_excel("C:/Users/marti/OneDrive/Desktop/test/HPI_dataset.xlsx", 
+    sheet = "1. All countries", 
+    range = "A9:L158")
+hpi <- HPI_dataset
+View(hpi)
+names(hpi)
+colnames(hpi) <- make.names(colnames(hpi))
+
+x <- hpi$`HPI.rank`   # chose to compare HPI rank to a few other factors
+y1 <- hpi$`Carbon.Footprint..tCO2e.` # testing for correlation.
+y2 <- hpi$`Life.Expectancy..years.` # testing for correlation.
+
+# Setting label orientation, margins c(bottom, left, top, right) & text size
+par(las=1, mar=c(4, 4, 2, 4), cex=.7, bg = "grey18") 
+plot.new()
+
+plot.window(range(x, na.rm=TRUE), range(c(y1, y2), na.rm=TRUE))
+# What is the first number standing for? The Bottom Axis.
+# X-axis based on HPI rank
+axis(1, at=seq(min(x, na.rm=TRUE), max(x, na.rm=TRUE), by=20), col.axis = "chartreuse2")
+
+# Y-axes based on the combined range of y1 and y2
+axis(2, at=seq(0, 90, by=10), col.axis = "chartreuse2")
+axis(4, at=seq(0, 90, by=10), col.axis = "chartreuse2")
+
+lines(x, y1, col="cyan1", lwd=2)
+lines(x, y2, col="violetred2", lwd=2)
+points(x, y1, pch=18, cex=2, col="cyan1") # Try different cex value? I did not like any othercex value, so I just changed the pch instead.  
+points(x, y2, pch=20, bg="chartreuse2", cex=2, col="violetred2")  # Changed background color to grey18.
+par(col="chartreuse2", fg= "chartreuse2", col.axis="chartreuse2")
+
+box(bty="u")
+mtext("HPI Rank", side=1, line=2, cex=0.8)
+mtext("Carbon Footprint (tCO2e)", side=2, line=2, las=0, cex=0.8)
+mtext("Life Expectancy (years)", side=4, line=2, las=0, cex=0.8)
+text(4, 5, "Bird 131")
+par(mar=c(5.1, 4.1, 4.1, 2.1), col="chartreuse2" , fg= "chartreuse2", col.axis="chartreuse2")
+
+#I was not really happy with how this turned out, I may redo this again with different variables.
+```
+
+**Histogram**
+
+```{r}
+# Histogram of Population
+library(readxl)
+HPI_dataset <- read_excel("C:/Users/marti/OneDrive/Desktop/test/HPI_dataset.xlsx", 
+    sheet = "1. All countries", range = "A9:L158")
+hpi <- HPI_dataset
+
+Y <- hpi$`Population (thousands)`
+Y <- na.omit(Y)
+
+# Use log10 scale because populations vary drastically
+Y_log <- log10(Y)
+
+# Plot
+par(bg="grey18", 
+    mar=c(4.5, 4.5, 3.1, 1),
+    col.axis="chartreuse2", 
+    col.lab="chartreuse2", 
+    col.main="chartreuse2")
+
+hist(Y_log,
+     breaks=15,
+     col="deepskyblue3",
+     border="white",
+     freq=FALSE,
+     main="Distribution of Country Populations",
+     xlab="Population in thousands",
+     ylab="Density")
+
+lines(density(Y_log), col="chartreuse2", lwd=2)
+rug(Y_log, col="white")
+
+# I am not yet satisfied with this, may go back and redo.
+```
+
+**Barplot**
+
+```{r}
+# Barplot
+par(mar=c(2, 3.1, 2, 2.1)) 
+midpts <- barplot(VADeaths, 
+                  col=gray(0.1 + seq(1, 9, 2)/11), 
+                  names=rep("", 4))
+mtext(sub(" ", "\n", colnames(VADeaths)),
+      at=midpts, side=1, line=0.5, cex=0.5)
+text(rep(midpts, each=5), apply(VADeaths, 2, cumsum) - VADeaths/2,
+     VADeaths, 
+     col=rep(c("white", "black"), times=3:2), 
+     cex=0.8)
+par(mar=c(5.1, 4.1, 4.1, 2.1))  
+```
+
+```{r}
+library(readxl)
+
+HPI_dataset <- read_excel("C:/Users/marti/OneDrive/Desktop/test/HPI_dataset.xlsx", 
+    sheet = "1. All countries", 
+    range = "A9:L158")
+
+hpi <- HPI_dataset
+
+# Make column names R-safe
+names(hpi) <- make.names(names(hpi))
+
+# Check column names (see the exact GDP column)
+print(names(hpi))
+
+# Aggregate mean GDP per capita by continent
+gdp_by_continent <- aggregate(`GDP.per.capita....` ~ Continent,
+                              data = hpi,
+                              FUN = mean,
+                              na.rm = TRUE)
+
+# Rename columns for convenience
+names(gdp_by_continent) <- c("Continent", "GDP.per.capita")
+
+# 🗺️ Map numeric continent codes to names
+continent_names <- c(
+  "1" = "Latin America",
+  "2" = "N. America & Oceania",
+  "3" = "Western Europe",
+  "4" = "Middle East",
+  "5" = "Africa",
+  "6" = "South Asia",
+  "7" = "Eastern Europe & Central Asia",
+  "8" = "East Asia"
+)
+
+# Replace codes with readable names
+gdp_by_continent$Continent <- continent_names[as.character(gdp_by_continent$Continent)]
+
+# Sort continents by GDP (descending)
+gdp_by_continent <- gdp_by_continent[order(gdp_by_continent$GDP.per.capita, decreasing = TRUE), ]
+
+# ---- Barplot ----
+par(mar=c(5, 4, 3, 2))
+midpts <- barplot(gdp_by_continent$GDP.per.capita,
+                  names.arg = rep("", nrow(gdp_by_continent)),
+                  col = gray(seq(0.3, 0.8, length.out = nrow(gdp_by_continent))),
+                  main = "Average GDP per Capita by Continent",
+                  ylab = "Avg GDP per Capita (USD)",
+                  ylim = c(0, max(gdp_by_continent$GDP.per.capita) * 1.1))
+
+# Add continent names under bars
+mtext(gdp_by_continent$Continent, at = midpts, side = 1, line = 0.5, cex = 0.8)
+
+# Add GDP values inside bars
+text(midpts, gdp_by_continent$GDP.per.capita / 2,
+     labels = round(gdp_by_continent$GDP.per.capita, 0),
+     col = "white", cex = 0.8)
+
+```
+
+**Boxplot**
+
+```{r}
+# Boxplot
+par(mar=c(3, 4.1, 2, 0))
+boxplot(len ~ dose, data = ToothGrowth,
+        boxwex = 0.25, at = 1:3 - 0.2,
+        subset= supp == "VC", col="white",
+        xlab="",
+        ylab="tooth length", ylim=c(0,35))
+mtext("Vitamin C dose (mg)", side=1, line=2.5, cex=0.8)
+boxplot(len ~ dose, data = ToothGrowth, add = TRUE,
+        boxwex = 0.25, at = 1:3 + 0.2,
+        
+        subset= supp == "OJ")
+legend(1.5, 9, c("Ascorbic acid", "Orange juice"), 
+       fill = c("white", "gray"), 
+       bty="n")
+par(mar=c(5.1, 4.1, 4.1, 2.1))
+```
+
+**Persp**
+
+```{r}
+# Persp
+x <- seq(-10, 10, length= 30)
+y <- x
+f <- function(x,y) { r <- sqrt(x^2+y^2); 10 * sin(r)/r }
+z <- outer(x, y, f)
+z[is.na(z)] <- 1
+# 0.5 to include z axis label
+par(mar=c(0, 0.5, 0, 0), lwd=0.5)
+persp(x, y, z, theta = 30, phi = 30, 
+      expand = 0.5)
+par(mar=c(5.1, 4.1, 4.1, 2.1), lwd=1)
+```
+
+**Piechart**
+
+```{r}
+# Piechart
+par(mar=c(0, 2, 1, 2), xpd=FALSE, cex=0.5)
+pie.sales <- c(0.12, 0.3, 0.26, 0.16, 0.04, 0.12)
+names(pie.sales) <- c("Blueberry", "Cherry",
+                      "Apple", "Boston Cream", "Other", "Vanilla")
+pie(pie.sales, col = gray(seq(0.3,1.0,length=6))) 
+```
