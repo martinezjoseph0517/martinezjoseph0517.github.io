@@ -1,0 +1,116 @@
+{
+  "about.qmd": {
+    "about.html": "e8c15e9a"
+  },
+  "index.qmd": {
+    "index.html": "de0fa9b9"
+  },
+  "homework.qmd": {
+    "homework.html": "232f2f0a"
+  },
+  "september10.qmd": {
+    "september10.html": "ec164403"
+  },
+  "September24.qmd": {
+    "September24.html": "eb108bd3"
+  },
+  "september24.qmd": {
+    "september24.html": "27fa3528"
+  },
+  "October2.qmd": {
+    "October2.html": "68da2ea3"
+  },
+  "october9.qmd": {
+    "october9.html": "c293bcda"
+  },
+  "October10.qmd": {
+    "October10.html": "9ac002a1"
+  },
+  "cvresume.qmd": {
+    "cvresume.html": "18122991"
+  },
+  "coursework.qmd": {
+    "coursework.html": "3bdd2324"
+  },
+  "assignments.qmd": {
+    "assignments.html": "b80998c3"
+  },
+  "blog.qmd": {
+    "blog.html": "43b94566"
+  },
+  "druckrey.qmd": {
+    "druckrey.html": "cdc53e25"
+  },
+  "mcghee.qmd": {
+    "mcghee.html": "6a7ed1be"
+  },
+  "assignment1.qmd": {
+    "assignment1.html": "208a9098"
+  },
+  "assignment2.qmd": {
+    "assignment2.html": "87acafc7"
+  },
+  "assignment3.qmd": {
+    "assignment3.html": "d71b4422"
+  },
+  "assignment4.qmd": {
+    "assignment4.html": "ad668db5"
+  },
+  "groupproject.qmd": {
+    "groupproject.html": "a3d389cb"
+  },
+  "classcode3.qmd": {
+    "classcode3.html": "caecf329"
+  },
+  "assignment5.qmd": {
+    "assignment5.html": "25924b1d"
+  },
+  "WebCrawler.qmd": {
+    "WebCrawler.html": "808aab57"
+  },
+  "assignment6.qmd": {
+    "assignment6.html": "97e7a7b9"
+  },
+  "FinalPresentation.qmd": {
+    "FinalPresentation.html": "903fd6f1"
+  },
+  "cal_taxes.qmd": {
+    "cal_taxes.html": "0958df7f"
+  },
+  "GenWebCrawl.qmd": {
+    "GenWebCrawl.html": "456a7bcc"
+  },
+  "library.qmd": {
+    "library.html": "c28b22bd"
+  },
+  "Basic_SP.qmd": {
+    "Basic_SP.html": "2c7dcf92"
+  },
+  "Basic_box.qmd": {
+    "Basic_box.html": "eebe1636"
+  },
+  "Basic_HBP.qmd": {
+    "Basic_HBP.html": "140a6f5a"
+  },
+  "Basic_hist.qmd": {
+    "Basic_hist.html": "bad377c4"
+  },
+  "Basic_persp.qmd": {
+    "Basic_persp.html": "68b9e320"
+  },
+  "Basic_Pie.qmd": {
+    "Basic_Pie.html": "33c37038"
+  },
+  "Basic_VBP.qmd": {
+    "Basic_VBP.html": "fddeb3ed"
+  },
+  "epps6323.qmd": {
+    "epps6323.html": "f8ae472f"
+  },
+  "epps6354.qmd": {
+    "epps6354.html": "12668a01"
+  },
+  "epps6356.qmd": {
+    "epps6356.html": "61b2d024"
+  }
+}
