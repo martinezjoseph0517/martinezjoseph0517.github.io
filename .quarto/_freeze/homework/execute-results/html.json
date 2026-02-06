@@ -1,0 +1,15 @@
+{
+  "hash": "af8d7604e940335c396021b2214dcea9",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Homework\"\nformat: html\neditor: visual\n---\n\n::: {.cell}\n\n```{.r .cell-code}\nlinks = c(\n   \"september10.qmd\"\n )\nlink_text_to_show = c(\n  \"September 10th\"\n)\n```\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
