@@ -1,5 +1,6 @@
 ---
 title: "Welcome to My Website!"
+format: html
 ---
 
 Hey! I am Joseph Martinez.
