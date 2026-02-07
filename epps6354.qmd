@@ -1,0 +1,10 @@
+---
+title: "EPPS 6354 Information Management | Spring 2026"
+format: html
+editor: visual
+---
+
+Welcome to my coursework page for EPPS 6354:
+
+-   [Blog](blog.qmd)
+-   [Assignments](6354assignments.qmd)
