@@ -1,12 +1,10 @@
 ---
 title: "Welcome to My Website!"
-format: html
-editor: visual
 ---
 
 Hey! I am Joseph Martinez.
 
-Welcome to my Quarto website!
+This is a my Quarto website for EPPS 6356 Data Visualization.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(quantmod)

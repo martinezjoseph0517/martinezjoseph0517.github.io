@@ -1,0 +1,48 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Joseph Martinez: Broker & Aspiring Analyst"
+
+  navbar:
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Blog"
+        href: blog.qmd
+      - text: "Coursework"
+        href: coursework.qmd
+        menu:
+        - text: "EPPS 6323 Knowledge Mining | Spring 2026"
+          href: epps6323.qmd
+        - text: "EPPS 6354 Information Management | Spring 2026"
+          href: epps6354.qmd
+        - text: "EPPS 6356 Data Visualization | Fall 2025"
+          href: epps6356.qmd
+      - text: "CV & Resume"
+        href: cvresume.qmd
+      - text: "About"
+        href: about.qmd
+      - text: "Library"
+        href: library.qmd
+
+  sidebar:
+    title: "Coursework"
+    contents:
+      - text: "EPPS 6323 Knowledge Mining | Spring 2026"
+        href: epps6323.qmd
+      - text: "EPPS 6354 Information Management | Spring 2026"
+        href: epps6354.qmd
+      - text: "EPPS 6356 Data Visualization | Fall 2025"
+        href: epps6356.qmd
+
+format:
+  html:
+    theme:
+      - lux
+      - brand
+    css: styles.css
+    toc: true
+
+editor: visual

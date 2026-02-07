@@ -4,8 +4,8 @@ format: html
 editor: visual
 ---
 
-Classes:
+Welcome to my coursework page for EPPS 6356:
 
--   [EPPS 6323 Knowledge Mining | Spring 2026](epps6323.qmd)
--   [EPPS 6354 Information Management | Spring 2026](epps6354.qmd)
--   [EPPS 6356 Data Visualization | Fall 2025](epps6356.qmd)
+-   [EPPS 6356 | Data Visualization](epps6356.qmd)
+-   [EPPS 6323 | Knowledge Mining](epps6323.qmd)
+-   [EPPS 6354 | Information Management](epps6354.qmd)

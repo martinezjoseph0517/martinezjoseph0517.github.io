@@ -6,6 +6,6 @@ editor: visual
 
 Welcome to my coursework page for EPPS 6356:
 
--   [Blog](blog.qmd)
--   [Assignments](assignments.qmd)
--   [Group Project](groupproject.qmd)
+-   [EPPS 6356 | Data Visualization](epps6356.qmd)
+-   [EPPS 6323 | Knowledge Mining](epps6323.qmd)
+-   [EPPS 6354 | Information Management](epps6354.qmd)
