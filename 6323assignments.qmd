@@ -1,4 +1,13 @@
 ---
-title: "6323assignments"
+title: "EPPS 6323 Knowledge Mining | Spring 2026"
 format: html
 ---
+
+**Individual Assignments**
+
+-   [Assignment 1 - February 10th, 2026](6323-A1.qmd)
+-   [Assignment 2 - February 17th, 2026](6323-A2.qmd)
+
+**Group Project**
+
+-   [Project Pitch Deck](6323-PitchDeck.qmd)

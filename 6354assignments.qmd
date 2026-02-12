@@ -1,4 +1,10 @@
 ---
-title: "6354assignments"
+title: "EPPS 6354 Information Management | Spring 2026"
 format: html
 ---
+
+**Assignments**
+
+- [Assignment 1 - Febuary 12th, 2026](6354-A1)
+
+**Class Project**
