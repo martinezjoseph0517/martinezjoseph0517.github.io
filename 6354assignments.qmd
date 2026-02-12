@@ -5,6 +5,10 @@ format: html
 
 **Assignments**
 
-- [Assignment 1 - Febuary 12th, 2026](6354-A1)
+-   [Assignment 1 - February 12th, 2026](6354-A1)
+
+-   [Assignment 2 - February 12th, 2026](6354-A2)
+
+-   [Assignment 3 - February 12th, 2026](6354-A3)
 
 **Class Project**
