@@ -192,7 +192,7 @@
     "href": "index.html",
     "title": "Welcome to My Website!",
     "section": "",
-    "text": "Hey! I am Joseph Martinez.\nThis is a my Quarto website for EPPS 6356 Data Visualization.\n\n\n[1] \"SPY\" \"QQQ\" \"DIA\"\n\n\n\n\n\n\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "Hey! I am Joseph Martinez.\nA financial professional and graduate student utilizing data science to maximize opportunities for clientele.\n\n\n[1] \"SPY\" \"QQQ\" \"DIA\"\n\n\n\n\n\n\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
   },
   {
     "objectID": "blog.html",
@@ -223,7 +223,7 @@
     "href": "6354assignments.html",
     "title": "EPPS 6354 Information Management | Spring 2026",
     "section": "",
-    "text": "Assignments\n\nAssignment 1 - February 12th, 2026\nAssignment 2 - February 12th, 2026\nAssignment 3 - February 12th, 2026\n\nClass Project"
+    "text": "Assignments\n\nAssignment 1 - February 5th, 2026\nAssignment 2 - February 12th, 2026\nAssignment 3 - February 19th, 2026\n\nClass Project"
   },
   {
     "objectID": "6323assignments.html",
@@ -231,5 +231,12 @@
     "title": "EPPS 6323 Knowledge Mining | Spring 2026",
     "section": "",
     "text": "Individual Assignments\n\nAssignment 1 - February 10th, 2026\nAssignment 2 - February 17th, 2026\n\nGroup Project\n\nProject Pitch Deck"
+  },
+  {
+    "objectID": "6354-A3.html",
+    "href": "6354-A3.html",
+    "title": "Assignment 3 - February 19th, 2026",
+    "section": "",
+    "text": "Task One: Write SQL codes to get a list of: Students, Instructors, & Departments\nSQL CODE:\nSELECT DISTINCT *\nFROM student;\n\nSELECT *\nFROM instructor;\n\nSELECT *\nFROM department;\nRESULT:\n\n\nOr Click to Show/Hide CV"
   }
 ]
