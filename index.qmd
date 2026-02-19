@@ -5,7 +5,7 @@ format: html
 
 Hey! I am Joseph Martinez.
 
-This is a my Quarto website for EPPS 6356 Data Visualization.
+A financial professional and graduate student utilizing data science to maximize opportunities for clientele.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(quantmod)
