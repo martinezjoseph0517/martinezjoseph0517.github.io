@@ -214,12 +214,132 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> department;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-RESULT:
+<p>RESULT:</p>
 <details>
 <summary>
-<strong>Or Click to Show/Hide CV</strong>
+<strong>Or Click to Show/Hide Result</strong>
 </summary>
 <iframe src="6354-A3-1.png" width="100%" height="800px" style="border: none; margin-top: 1em;">
+</iframe>
+</details>
+<p><strong>Task Two: Write SQL codes to do following queries:</strong> i. Find the ID and name of each student who has taken at least one Comp. Sci. course; make sure there are no duplicate names in the result.</p>
+<ol start="2" type="i">
+<li><p>Add grades to the list</p></li>
+<li><p>Find the ID and name of each student who has not taken any course offered before 2017.</p></li>
+<li><p>For each department, find the maximum salary of instructors in that department. You may assume that every department has at least one instructor.</p></li>
+<li><p>Find the lowest, across all departments, of the per-department maximum salary computed by the preceding query.</p></li>
+<li><p>Add names to the list</p></li>
+</ol>
+<p>SQL CODE for I &amp; II:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> s.<span class="kw">ID</span>,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>       s.name,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>       GROUP_CONCAT(t.grade, <span class="st">', '</span>) <span class="kw">AS</span> grades</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> student <span class="kw">AS</span> s</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> takes  <span class="kw">AS</span> t <span class="kw">ON</span> t.<span class="kw">ID</span> <span class="op">=</span> s.<span class="kw">ID</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> course  <span class="kw">AS</span> c <span class="kw">ON</span> c.course_id <span class="op">=</span> t.course_id</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> c.dept_name <span class="op">=</span> <span class="st">'Comp. Sci.'</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> s.<span class="kw">ID</span>, s.name;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>RESULT for I &amp; II:</p>
+<details>
+<summary>
+<strong>Or Click to Show/Hide Result</strong>
+</summary>
+<iframe src="6354-A3-2-1.png" width="100%" height="800px" style="border: none; margin-top: 1em;">
+</iframe>
+</details>
+<p>SQL CODE FOR III:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> s.<span class="kw">ID</span>, s.name</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> student <span class="kw">AS</span> s</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> <span class="kw">NOT</span> <span class="kw">EXISTS</span> (</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span> <span class="dv">1</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> takes <span class="kw">AS</span> t</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">WHERE</span> t.<span class="kw">ID</span> <span class="op">=</span> s.<span class="kw">ID</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">AND</span> t.<span class="dt">year</span> <span class="op">&lt;</span> <span class="dv">2017</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>RESULT FOR III:</p>
+<details>
+<summary>
+<strong>Or Click to Show/Hide Result</strong>
+</summary>
+<iframe src="6354-A3-2-3.png" width="100%" height="800px" style="border: none; margin-top: 1em;">
+</iframe>
+</details>
+<p>SQL CODE FOR IV &amp; VI:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> i.dept_name, i.name, i.salary</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> instructor <span class="kw">AS</span> i</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> (</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> dept_name, <span class="fu">MAX</span>(salary) <span class="kw">AS</span> max_salary</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> instructor</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> dept_name</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>) <span class="kw">AS</span> dept_max</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="kw">ON</span> i.dept_name <span class="op">=</span> dept_max.dept_name</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="kw">AND</span> i.salary <span class="op">=</span> dept_max.max_salary;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>RESULT FOR IV &amp; VI:</p>
+<details>
+<summary>
+<strong>Or Click to Show/Hide Result</strong>
+</summary>
+<iframe src="6354-A3-2-4.png" width="100%" height="800px" style="border: none; margin-top: 1em;">
+</iframe>
+</details>
+<p>SQL CODE FOR V &amp; VI:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> i.dept_name, i.name, i.salary</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> instructor <span class="kw">AS</span> i</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> (</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> dept_name, <span class="fu">MAX</span>(salary) <span class="kw">AS</span> max_salary</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> instructor</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> dept_name</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ORDER</span> <span class="kw">BY</span> max_salary</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">LIMIT</span> <span class="dv">1</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>) <span class="kw">AS</span> dept_max</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="kw">ON</span> i.dept_name <span class="op">=</span> dept_max.dept_name</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="kw">AND</span> i.salary <span class="op">=</span> dept_max.max_salary;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>RESULT FOR V &amp; VI:</p>
+<details>
+<summary>
+<strong>Or Click to Show/Hide Result</strong>
+</summary>
+<iframe src="6354-A3-2-5.png" width="100%" height="800px" style="border: none; margin-top: 1em;">
+</iframe>
+</details>
+<p><strong>Task Three: Find instructor (with name and ID) who has never given an A grade in any course she or he has taught. (Instructors who have never taught a course trivially satisfy this condition.)</strong></p>
+<p>SQL CODE:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> i.<span class="kw">ID</span>, i.name</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> instructor <span class="kw">AS</span> i</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> <span class="kw">NOT</span> <span class="kw">EXISTS</span> (</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span> <span class="dv">1</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> teaches <span class="kw">AS</span> te</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">JOIN</span> takes   <span class="kw">AS</span> ta</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ON</span> ta.course_id <span class="op">=</span> te.course_id</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>   <span class="kw">AND</span> ta.sec_id    <span class="op">=</span> te.sec_id</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>   <span class="kw">AND</span> ta.semester  <span class="op">=</span> te.semester</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>   <span class="kw">AND</span> ta.<span class="dt">year</span>      <span class="op">=</span> te.<span class="dt">year</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">WHERE</span> te.<span class="kw">ID</span> <span class="op">=</span> i.<span class="kw">ID</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">AND</span> ta.grade <span class="op">=</span> <span class="st">'A'</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>RESULT:</p>
+<details>
+<summary>
+<strong>Or Click to Show/Hide Result</strong>
+</summary>
+<iframe src="6354-A3-3.png" width="100%" height="800px" style="border: none; margin-top: 1em;">
+</iframe>
+</details>
+<p><strong>Task Four:Write SQL query to find the number of students in each section. The result columns should appear in the order “courseid, secid, year, semester, num”. You do not need to output sections with 0 students.</strong></p>
+<p>SQL CODE:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> course_id,</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>       sec_id,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>       <span class="dt">year</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>       semester,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>       <span class="fu">COUNT</span>(<span class="kw">ID</span>) <span class="kw">AS</span> num</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> takes</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> course_id, sec_id, <span class="dt">year</span>, semester;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>RESULT:</p>
+<details>
+<summary>
+<strong>Or Click to Show/Hide Result</strong>
+</summary>
+<iframe src="6354-A3-4.png" width="100%" height="800px" style="border: none; margin-top: 1em;">
 </iframe>
 </details>
 
