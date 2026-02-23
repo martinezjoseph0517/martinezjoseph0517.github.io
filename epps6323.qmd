@@ -6,5 +6,5 @@ editor: visual
 
 Welcome to my coursework page for EPPS 6323:
 
--   [Blog](blog.qmd)
+-   [Reflections](6323blog.qmd)
 -   [Assignments](6323assignments.qmd)
