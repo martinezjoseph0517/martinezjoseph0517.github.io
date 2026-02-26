@@ -1,5 +1,17 @@
----
-title: "6354-A1"
+#---
+title: "Assignment 1 - Febuary 5th, 2025"
+subtitle: "Information Management"
 format: html
 ---
 
+## Name and describe three applications you have used that employed a database system to store and access persistent data.
+
+## Propose three applications in domain projects that include purpose, functions, and suimple interface design.
+
+## If data can be retrieved efficiently and effectively, why is data mining needed?
+
+## Why NoSQL systems emerged in the 2000s? Briefly contrast their features with traditional database systems.
+
+## What are the things current database system cannot do?
+
+## Describe at least three tables that mihgt be used to store information in a social-network/social-media system such as Twitter or Reddit.

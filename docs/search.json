@@ -223,7 +223,7 @@
     "href": "6354assignments.html",
     "title": "EPPS 6354 Information Management | Spring 2026",
     "section": "",
-    "text": "Assignments\n\nAssignment 1 - February 5th, 2026\nAssignment 2 - February 12th, 2026\nAssignment 3 - February 19th, 2026\n\nClass Project"
+    "text": "Assignment 1 - February 5th, 2026\nAssignment 2 - February 12th, 2026\nAssignment 3 - February 19th, 2026\nAssignment 4 - February 26th, 2026"
   },
   {
     "objectID": "6323assignments.html",
@@ -399,5 +399,96 @@
     "title": "Assignment 2 - February 17th, 2026",
     "section": "",
     "text": "Or Click to Show/Hide Response"
+  },
+  {
+    "objectID": "6354-A4.html",
+    "href": "6354-A4.html",
+    "title": "Assignment 4 - February 26th, 2026",
+    "section": "",
+    "text": "##Design an E-R diagram for keeping track of the scoring statistics of your favorite sports team. You should store the matches played, the scores in each match, the players in each match, and individual player scoring statistics for each match. Summary statistics should be modeled as derived attributes with an explanation as to how they are computed. (Consult: Practice Exercise solutions on textbook website)"
+  },
+  {
+    "objectID": "6354-A4.html#explain-the-difference-between-a-weak-and-a-strong-entity-set.-use-an-example-other-than-the-one-in-chapter-6-to-illustrate.-consult-ch.-6-6.5.3",
+    "href": "6354-A4.html#explain-the-difference-between-a-weak-and-a-strong-entity-set.-use-an-example-other-than-the-one-in-chapter-6-to-illustrate.-consult-ch.-6-6.5.3",
+    "title": "Assignment 4 - February 26th, 2026",
+    "section": "",
+    "text": "##Design an E-R diagram for keeping track of the scoring statistics of your favorite sports team. You should store the matches played, the scores in each match, the players in each match, and individual player scoring statistics for each match. Summary statistics should be modeled as derived attributes with an explanation as to how they are computed. (Consult: Practice Exercise solutions on textbook website)"
+  },
+  {
+    "objectID": "6354-A4.html#sql-exercise",
+    "href": "6354-A4.html#sql-exercise",
+    "title": "Assignment 4 - February 26th, 2026",
+    "section": "SQL exercise:",
+    "text": "SQL exercise:\n\na) Consider the query select course_id, semester, year, sec_id, avg (tot_cred) from takes natural join student where year = 2017 group by course_id, semester, year, sec_id having count (ID) &gt;= 2;\n\ni. Explain why appending natural join section in the from clause would not change the result. (Consult Ch. 4, 4.1.1)\n\n\nii. Test the results using the Online SQL interpreter (https://www.dbbook.com/university-lab-dir/sqljs.html)\n\n\n\nb) Write an SQL query using the university schema to find the ID of each student who has never taken a course at the university. Do this using no subqueries and no set operations (use an outer join). (Consult Ch. 4, 4.1.3)\n\n\nc) Consider the following database, write a query to find the ID of each employee with no manager. Note that an employee may simply have no manager listed or may have a null manager(use natural left outer join). (Consult Ch. 4, 4.1.3)"
+  },
+  {
+    "objectID": "6354-A1.html",
+    "href": "6354-A1.html",
+    "title": "Joseph Martinez: Financial Professional & Aspiring Analyst",
+    "section": "",
+    "text": "#— title: “Assignment 1 - Febuary 5th, 2025” subtitle: “Information Management” format: html —"
+  },
+  {
+    "objectID": "6354-A1.html#name-and-describe-three-applications-you-have-used-that-employed-a-database-system-to-store-and-access-persistent-data.",
+    "href": "6354-A1.html#name-and-describe-three-applications-you-have-used-that-employed-a-database-system-to-store-and-access-persistent-data.",
+    "title": "Joseph Martinez: Financial Professional & Aspiring Analyst",
+    "section": "Name and describe three applications you have used that employed a database system to store and access persistent data.",
+    "text": "Name and describe three applications you have used that employed a database system to store and access persistent data."
+  },
+  {
+    "objectID": "6354-A1.html#propose-three-applications-in-domain-projects-that-include-purpose-functions-and-suimple-interface-design.",
+    "href": "6354-A1.html#propose-three-applications-in-domain-projects-that-include-purpose-functions-and-suimple-interface-design.",
+    "title": "Joseph Martinez: Financial Professional & Aspiring Analyst",
+    "section": "Propose three applications in domain projects that include purpose, functions, and suimple interface design.",
+    "text": "Propose three applications in domain projects that include purpose, functions, and suimple interface design."
+  },
+  {
+    "objectID": "6354-A1.html#if-data-can-be-retrieved-efficiently-and-effectively-why-is-data-mining-needed",
+    "href": "6354-A1.html#if-data-can-be-retrieved-efficiently-and-effectively-why-is-data-mining-needed",
+    "title": "Joseph Martinez: Financial Professional & Aspiring Analyst",
+    "section": "If data can be retrieved efficiently and effectively, why is data mining needed?",
+    "text": "If data can be retrieved efficiently and effectively, why is data mining needed?"
+  },
+  {
+    "objectID": "6354-A1.html#why-nosql-systems-emerged-in-the-2000s-briefly-contrast-their-features-with-traditional-database-systems.",
+    "href": "6354-A1.html#why-nosql-systems-emerged-in-the-2000s-briefly-contrast-their-features-with-traditional-database-systems.",
+    "title": "Joseph Martinez: Financial Professional & Aspiring Analyst",
+    "section": "Why NoSQL systems emerged in the 2000s? Briefly contrast their features with traditional database systems.",
+    "text": "Why NoSQL systems emerged in the 2000s? Briefly contrast their features with traditional database systems."
+  },
+  {
+    "objectID": "6354-A1.html#what-are-the-things-current-database-system-cannot-do",
+    "href": "6354-A1.html#what-are-the-things-current-database-system-cannot-do",
+    "title": "Joseph Martinez: Financial Professional & Aspiring Analyst",
+    "section": "What are the things current database system cannot do?",
+    "text": "What are the things current database system cannot do?"
+  },
+  {
+    "objectID": "6354-A1.html#describe-at-least-three-tables-that-mihgt-be-used-to-store-information-in-a-social-networksocial-media-system-such-as-twitter-or-reddit.",
+    "href": "6354-A1.html#describe-at-least-three-tables-that-mihgt-be-used-to-store-information-in-a-social-networksocial-media-system-such-as-twitter-or-reddit.",
+    "title": "Joseph Martinez: Financial Professional & Aspiring Analyst",
+    "section": "Describe at least three tables that mihgt be used to store information in a social-network/social-media system such as Twitter or Reddit.",
+    "text": "Describe at least three tables that mihgt be used to store information in a social-network/social-media system such as Twitter or Reddit."
+  },
+  {
+    "objectID": "6354-A2.html",
+    "href": "6354-A2.html",
+    "title": "Assignment 2 - Febuary 12th, 2025",
+    "section": "",
+    "text": "##What are the differences between relation schema, relation, and instance? Give an example using the university database to illustrate.\n##Draw a schema diagram for the following bank database: - branch(branch_name, branch_city, assets) - customer(ID_customer_name, customer_street, customer_city) - loan(loan_number, branch_name, amount) - borrower(ID, loan_number) - account(account_number, branch_name, balance) - depositor(ID, account_number)\n###Schema Diagram\n##Consider the above bank database. Assume that branch names (branch_name) and customer names (customer_name) uniquely identify branches and customers, but loans and accounts can be associated with more than one customer.\n###i. What are the appropriate primary keys? (Underline each in diagram)\n###ii. Given your choice of primary keys, identify appropriate foreign keys.\n##Describe two ways artificial intelligence or LLM can assist in managing or querying a database. In your answer, briefly explain how each method improves efficiency or accuracy compared to traditional (non-AI) approaches. (3-5 sentences)"
+  },
+  {
+    "objectID": "6354assignments.html#assignments",
+    "href": "6354assignments.html#assignments",
+    "title": "EPPS 6354 Information Management | Spring 2026",
+    "section": "",
+    "text": "Assignment 1 - February 5th, 2026\nAssignment 2 - February 12th, 2026\nAssignment 3 - February 19th, 2026\nAssignment 4 - February 26th, 2026"
+  },
+  {
+    "objectID": "6354assignments.html#class-project",
+    "href": "6354assignments.html#class-project",
+    "title": "EPPS 6354 Information Management | Spring 2026",
+    "section": "Class Project",
+    "text": "Class Project\n\nPitch Deck\n\n\nOr Click to Show/Hide Pitch Deck\n\n\n ⬇ Download Pitch Deck"
   }
 ]
