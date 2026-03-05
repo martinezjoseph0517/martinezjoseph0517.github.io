@@ -10,6 +10,18 @@ format: html
 
 ###   a) The graph is disconnected.
 
+An E–R diagram can be viewed as a graph in which entity types act as nodes (vertices) and relationship types act as edges connecting those nodes. When the graph is disconnected, it means that the diagram is divided into two or more separate parts that are not linked by any relationships. In terms of the structure of an enterprise schema, this indicates that some groups of entities and relationships exist independently from others. There is no path of relationships connecting one group of entities to another, meaning the schema contains separate components that do not interact with each other within the model.
+
+A disconnected graph may represent different independent subsystems of an enterprise, or it may suggest that some relationships between entities have not been identified or included in the schema design. Because of this separation, entities in one component cannot participate in relationships with entities in another component within the current schema.
+
+Example:
+
+Employee — Works_In — Department
+
+Product — Supplied_By — Supplier
+
+In this case, the employee/department portion of the schema is completely separate from the product/supplier portion, making the overall E–R graph disconnected.
+
 ### b) The graph has a cycle.
 
 ## 2. Construct an E-R diagram for a hospital with a set of patients and a set of medical doctors. Associate with each patient a log of the various tests and examinations conducted. (HINT: use miro.com to draw the diagram with relationship sets).
