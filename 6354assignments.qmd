@@ -12,3 +12,5 @@ format: html
 -   [Assignment 3 - February 19th, 2026](6354-A3.qmd)
 
 -   [Assignment 4 - February 26th, 2026](6354-A4.qmd)
+
+-   [Assignment 5 - March 5th, 2026](6354-A5.qmd)
