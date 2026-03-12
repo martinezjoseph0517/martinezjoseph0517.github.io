@@ -1,9 +1,13 @@
 ---
 title: "epps6323Skratchpad"
 format: html
+
+eval: false
+echo: false
 ---
 
 ```{r}
+
 library(haven)
 library(data.table)
 

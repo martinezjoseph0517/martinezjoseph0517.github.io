@@ -272,9 +272,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="ii.-find-id-and-name-of-each-employee-who-lives-in-the-same-city-and-on-the-same-street-as-her-or-her-manager." class="level4">
 <h4 class="anchored" data-anchor-id="ii.-find-id-and-name-of-each-employee-who-lives-in-the-same-city-and-on-the-same-street-as-her-or-her-manager.">ii. Find ID and name of each employee who lives in the same city and on the same street as her or her manager.</h4>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> e.<span class="kw">ID</span>, e.person_name</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> employee <span class="kw">AS</span> e</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> manages <span class="kw">AS</span> m <span class="kw">ON</span> e.<span class="kw">ID</span> <span class="op">=</span> m.<span class="kw">ID</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> employee <span class="kw">AS</span> mgr <span class="kw">ON</span> m.manager_id <span class="op">=</span> mgr.<span class="kw">ID</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> e.city <span class="op">=</span> mgr.city</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">AND</span> e.street <span class="op">=</span> mgr.street;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="iii.-find-id-and-name-of-each-employee-who-earns-more-than-the-average-salary-of-all-employees-of-her-or-his-company." class="level4">
 <h4 class="anchored" data-anchor-id="iii.-find-id-and-name-of-each-employee-who-earns-more-than-the-average-salary-of-all-employees-of-her-or-his-company.">iii. Find ID and name of each employee who earns more than the average salary of all employees of her or his company.</h4>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> e.<span class="kw">ID</span>, e.person_name</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> employee <span class="kw">AS</span> e</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> works <span class="kw">AS</span> w <span class="kw">ON</span> e.<span class="kw">ID</span> <span class="op">=</span> w.<span class="kw">ID</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> w.salary <span class="op">&gt;</span> (</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> <span class="fu">AVG</span>(w2.salary)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> works <span class="kw">AS</span> w2</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> w2.company_name <span class="op">=</span> w.company_name</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="b-consider-the-following-sql-query-that-seeks-to-find-a-list-of-titles-of-all-courses-taught-in-spring-2017-along-with-the-name-of-the-instructor." class="level3">
@@ -283,6 +297,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>from instructor natural join teaches natural join section natural join course</strong></p>
 <p><strong>where semester = ‘Spring’ and year = ‘2017’</strong></p>
 <p><strong>What is wrong with this query? (HINT: Check book website)</strong></p>
+<p>This query use of NATURAL JOIN over several tables is the problem. The natural join automatically joins tables using all columns that have the same name, even if those columns are not meant to be used to join in the tables. As a result, the database might join tables in ways that don’t make sense.</p>
+<p>In this schema, both the instructor and section tables have a column called dept_name. When NATURAL JOIN is used, the database will try to match those columns together, even when the query is just supposed to connect instructors to their courses.</p>
+<p>A safer way to write it is to use JOINs and specify the join conditions. This ensures the database only connects the tables with the columns we want.</p>
 
 
 </section>
