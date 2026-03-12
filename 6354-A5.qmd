@@ -8,7 +8,7 @@ format: html
 
 ## 1. An E-R diagram can be viewed as a graph. What do the following mean in terms of the structure of an enterprise schema?
 
-###   a) The graph is disconnected.
+### a) The graph is disconnected.
 
 An E–R diagram can be viewed as a graph in which entity types act as nodes (vertices) and relationship types act as edges connecting those nodes. When the graph is disconnected, it means that the diagram is divided into two or more separate parts that are not linked by any relationships. This shows that some groups of entities and relationships exist independently of others in terms of an enterprise schema's structure. The schema contains distinct elements that do not interact with one another within the model because there is no path of relationships linking one group of entities to another.
 
@@ -24,9 +24,23 @@ In this case, the employee/department portion of the schema is completely separa
 
 ### b) The graph has a cycle.
 
+An E–R diagram can be viewed as a graph in which entity types are represented as nodes and relationship types are represented as edges connecting those nodes. A cycle in the graph indicates a relationship path that starts at an entity type and eventually returns to the same entity type without going back through the same relationship. In terms of the structure of an enterprise schema, this demonstrates how a collection of entities are connected to one another in a way that forms a closed loop.
+
+Complex interdependencies between entities are frequently reflected when an enterprise schema has a cycle. It demonstrates how entities can be linked by a variety of relationships that eventually lead back to the initial entity. In real-world systems where entities interact in a variety of ways and relationships create interconnected structures as opposed to straightforward linear chains, cycles are frequently observed.
+
+Example:
+
+Employee — Works_In — Department Department — Managed_By — Manager Manager — Supervises — Employee
+
+In this example, starting from Employee, the relationships lead to Department, then to Manager, and finally back to Employee, forming a cycle in the E–R graph.
+
 ## 2. Construct an E-R diagram for a hospital with a set of patients and a set of medical doctors. Associate with each patient a log of the various tests and examinations conducted. (HINT: use miro.com to draw the diagram with relationship sets).
 
+![](C:/Users/marti/OneDrive/Desktop/test/6354-A5-1.png)
+
 ## 3. We can convert any weak entity set to a strong entity set by simply adding appropriate attributes. Why, then, do we have weak entity sets?
+
+Weak entity sets are used when an entity can’t be uniquely identified by its own attributes and instead depends on another entity to be identified. Even though we could turn a weak entity into a strong one by adding a new ID attribute, that would hide the real dependency between the entities. Weak entities make it clear that one entity relies on another to exist or be identified. They also help show important rules and relationships in the database design. Because of this, using weak entity sets often give a clearer picture of how the enterprise actually works.
 
 ## 4. SQL EXERCISE
 
@@ -44,9 +58,37 @@ Where the primary keys are underlined, give an expression in SQL for each of the
 
 #### i. Find ID and name of each employee who lives in the same city as the location of the company for which the employee works.
 
+``` sql
+SELECT e.ID, e.person_name
+FROM employee AS e
+JOIN works AS w ON e.ID = w.ID
+JOIN company AS c ON w.company_name = c.company_name
+WHERE e.city = c.city;
+```
+
 #### ii. Find ID and name of each employee who lives in the same city and on the same street as her or her manager.
 
+``` sql
+SELECT e.ID, e.person_name
+FROM employee AS e
+JOIN manages AS m ON e.ID = m.ID
+JOIN employee AS mgr ON m.manager_id = mgr.ID
+WHERE e.city = mgr.city
+  AND e.street = mgr.street;
+```
+
 #### iii. Find ID and name of each employee who earns more than the average salary of all employees of her or his company.
+
+``` sql
+SELECT e.ID, e.person_name
+FROM employee AS e
+JOIN works AS w ON e.ID = w.ID
+WHERE w.salary > (
+    SELECT AVG(w2.salary)
+    FROM works AS w2
+    WHERE w2.company_name = w.company_name
+);
+```
 
 ### b) Consider the following SQL query that seeks to find a list of titles of all courses taught in Spring 2017, along with the name of the instructor.
 
@@ -57,3 +99,9 @@ Where the primary keys are underlined, give an expression in SQL for each of the
 **where semester = 'Spring' and year = '2017'**
 
 **What is wrong with this query? (HINT: Check book website)**
+
+This query use of NATURAL JOIN over several tables is the problem. The natural join automatically joins tables using all columns that have the same name, even if those columns are not meant to be used to join in the tables. As a result, the database might join tables in ways that don't make sense.
+
+In this schema, both the instructor and section tables have a column called dept_name. When NATURAL JOIN is used, the database will try to match those columns together, even when the query is just supposed to connect instructors to their courses.
+
+A safer way to write it is to use JOINs and specify the join conditions. This ensures the database only connects the tables with the columns we want.
