@@ -4,22 +4,16 @@ subtitle: "Information Management"
 format: html
 ---
 
-##What are the differences between relation schema, relation, and instance? Give an example using the university database to illustrate.
+### What are the differences between relation schema, relation, and instance? Give an example using the university database to illustrate.
 
-##Draw a schema diagram for the following bank database:
-- branch(branch_name, branch_city, assets)
-- customer(ID_customer_name, customer_street, customer_city)
-- loan(loan_number, branch_name, amount)
-- borrower(ID, loan_number)
-- account(account_number, branch_name, balance)
-- depositor(ID, account_number)
+### Draw a schema diagram for the following bank database: - branch(branch_name, branch_city, assets) - customer(ID_customer_name, customer_street, customer_city) - loan(loan_number, branch_name, amount) - borrower(ID, loan_number) - account(account_number, branch_name, balance) - depositor(ID, account_number)
 
-###Schema Diagram
+### 
 
-##Consider the above bank database. Assume that branch names (branch_name) and customer names (customer_name) uniquely identify branches and customers, but loans and accounts can be associated with more than one customer.
+### Consider the above bank database. Assume that branch names (branch_name) and customer names (customer_name) uniquely identify branches and customers, but loans and accounts can be associated with more than one customer.
 
-###i. What are the appropriate primary keys? (Underline each in diagram)
+#### i. What are the appropriate primary keys? (Underline each in diagram)
 
-###ii. Given your choice of primary keys, identify appropriate foreign keys.
+#### ii. Given your choice of primary keys, identify appropriate foreign keys.
 
-##Describe two ways artificial intelligence or LLM can assist in managing or querying a database. In your answer, briefly explain how each method improves efficiency or accuracy compared to traditional (non-AI) approaches. (3-5 sentences)
+### Describe two ways artificial intelligence or LLM can assist in managing or querying a database. In your answer, briefly explain how each method improves efficiency or accuracy compared to traditional (non-AI) approaches. (3-5 sentences)
