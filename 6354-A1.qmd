@@ -1,4 +1,4 @@
-#---
+---
 title: "Assignment 1 - Febuary 5th, 2025"
 subtitle: "Information Management"
 format: html
@@ -6,12 +6,48 @@ format: html
 
 ## Name and describe three applications you have used that employed a database system to store and access persistent data.
 
-## Propose three applications in domain projects that include purpose, functions, and suimple interface design.
+Since entering the workforce I have been an AI auditor at Scale.AI, a stockbroker at Charles Schwab, an Investment Adviser at IEQ Capital. In all three roles client data was stored in various separate client relationship management software and the data-flow between these CRMs are absolutely essential to ensure a positive client experience. From portfolio quotes being accurate, so clients can know the value of their accounts; to investment attitudes being accurate so advisers can maintain suitable solicitations. These systems are also in constant flux. Clients age, earn more income or less, and a book of business can expand in both size and revenue. The latter of which can be an indicator of the need to add new employees in order to continue to scale.
+
+At Schwab we had different CRMs to tackle separate tasks. We had two specialized CRMs for trading, one which was streamlined for more traditional buy/hold investors, and another for more complicated strategies such as short sales, derivatives, and other leveraged strategies. And a separate CRM was used to manage the client's relationship with the firm, including who their assigned representative was, other relationships they had with other clients, and
+
+## Propose three applications in domain projects that include purpose, functions, and simple interface design.
+
+**ConflictEye:** an application designed to track armed conflicts worldwide and present them through interactive heat maps and detailed, subject-specific pages. It aggregates diverse information sources, including news articles, verified timelines, and firsthand accounts from people on the ground, to provide a comprehensive view of each conflict. The platform also highlights connections between conflicts and related global events, helping users understand broader geopolitical patterns and causes. By combining real-time updates with historical context, ConflictEye enables users to explore, analyze, and stay informed about evolving conflicts in a clear and structured way.
+
+**Cosmic Trajectories:** Cosmic Trajectories is a data-driven platform that maps how correlations between asset classes and sub-asset classes evolve over time. It enables users to explore relationships across markets such as emerging markets, private credit, real estate, and public equities through dynamic visualizations and historical data. The application integrates major global news events—like 9/11, the invention of the iPhone, or the rise of generative AI—to help explain shifts in these correlations. By combining financial data with contextual event analysis, Cosmic Trajectories provides deeper insight into market behavior and macroeconomic trends.
+
+**The Blood Index:** The Blood Index is a research-oriented database application that investigates how systems of commerce, finance, and industry can become entangled with genocides and other crimes against humanity. It compiles historical cases, corporate involvement, supply chains, and financial instruments to analyze the conditions that enable profiteering in such contexts. The platform also examines whether these dynamics surface in mainstream markets, including links to securities that may appear in typical investment portfolios. By presenting this information with transparency and rigor, The Blood Index aims to support ethical analysis, accountability, and more informed decision-making.
 
 ## If data can be retrieved efficiently and effectively, why is data mining needed?
 
+If accessing data were truly as straightforward as it sounds, you might wonder why anyone would go beyond simple retrieval. After all, if the information is already there, shouldn’t pulling it be enough? In theory, yes. In practice, not quite.
+
+The reality is that raw data rarely presents itself in a neat, immediately useful form. It often comes scattered, repetitive, or buried under layers of irrelevant detail. Just because something can be retrieved quickly does not mean it can be understood just as easily. That gap, small as it may seem, matters more than people expect.
+
+Data mining steps in to bridge that gap. It focuses on uncovering patterns, relationships, and trends that are not obvious at first glance. Sometimes these insights are subtle, almost easy to overlook, and they require more than a surface-level interaction with the data. Simply retrieving information will not reveal them.
+
+So while efficient retrieval gives you access, it does not necessarily give you clarity. Data mining, on the other hand, helps transform that access into actual understanding, which is ultimately what makes the data useful in the first place.
+
 ## Why NoSQL systems emerged in the 2000s? Briefly contrast their features with traditional database systems.
+
+Back in the early 2000s, companies like Google and Amazon were running into a wall. Traditional relational databases just couldn’t keep up with the sheer volume and speed of data coming from search engines, online shopping, social platforms. Think billions of records, constantly changing. The old model started to feel tight, almost restrictive.
+
+So engineers began bending the rules. Or ignoring them. NoSQL systems emerged as a response to that pressure, prioritizing scalability and flexibility over strict structure. Instead of forcing everything into neat tables with predefined schemas, these systems allowed data to be stored more loosely, sometimes as documents, key-value pairs, or graphs. It wasn’t pretty at first, but it worked.
+
+Now, compared to traditional relational databases, the differences are pretty stark. Relational systems rely on fixed schemas, structured tables, and strong consistency. They’re reliable, no doubt, especially for transactions like banking systems. NoSQL databases, on the other hand, tend to embrace flexible schemas, horizontal scaling across many servers, and, in some cases, eventual consistency instead of immediate accuracy.
+
+So the trade-off becomes clear. Traditional databases give you order and precision. NoSQL gives you scale and adaptability. And depending on the problem, one starts to make a lot more sense than the other.
 
 ## What are the things current database system cannot do?
 
-## Describe at least three tables that mihgt be used to store information in a social-network/social-media system such as Twitter or Reddit.
+Modern database systems are powerful, no doubt, but they do have their limits. They’re great at storing, organizing, and retrieving data, but they don’t actually understand it. Meaning, context, and real insight still have to come from people or additional tools. And when it comes to messy, constantly changing real-world data, things can get a bit clunky, even with support for flexible formats like JSON.
+
+There are also some trade-offs that just can’t be avoided. In distributed systems, you can’t perfectly balance scalability, consistency, and availability all at once, so something always has to give. Real-time global synchronization without delays or conflicts is still more of an ideal than a reality. And at the end of the day, databases don’t think or make decisions on their own. They do what they’re told, which means deeper analysis and judgment still sit outside the system.
+
+## Describe at least three tables that might be used to store information in a social-network/social-media system such as Twitter or Reddit.
+
+**Users Table:** The Users table serves as the foundation of a social media system, storing core information about each individual on the platform. It includes fields such as user ID, username, email, password hash, and profile-related details like bio or profile image. This table connects to nearly every other part of the system, since all content and interactions originate from users. By maintaining structured and secure user data, it enables authentication, personalization, and overall platform functionality.
+
+**Posts Table:** The Posts table stores the primary content generated by users, such as tweets, posts, or threads. Each record typically includes a post ID, the user ID of the creator, the content itself, timestamps, and optional metadata like likes or shares. This table forms the core of the platform’s activity, allowing users to publish and view content in real time. By organizing posts efficiently, it supports content delivery, feeds, and user engagement across the system.
+
+**Interactions Table (Likes/Replies):** The Interactions table captures how users engage with content, including likes, reactions, and replies. It links users to posts or comments through identifiers such as user ID and post ID, along with timestamps and interaction types. This structure allows the platform to track engagement, support features like commenting or liking, and generate metrics for analysis. By separating interactions from posts, the system remains flexible and scalable as user activity grows.
