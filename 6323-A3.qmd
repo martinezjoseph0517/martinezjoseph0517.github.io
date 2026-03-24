@@ -14,9 +14,7 @@ Data Base
 ```{r}
 library(haven)
 
-TEDS_2016 <- read_stata(
-  "https://github.com/datageneration/home/blob/master/DataProgramming/data/TEDS_20016.dta?raw=true"
-  )
+TEDS_2016 <- read_stata("https://github.com/datageneration/home/blob/master/DataProgramming/data/TEDS_2016.dta?raw=true")
 
 ```
 
