@@ -3,8 +3,8 @@ title: "EPPS 6323 Knowledge Mining | Spring 2026"
 format: html
 ---
 
-##Group Project
-###Public Trust in Banks and Financial Institutions: A Knowledge Mining Approach
+## Group Project
+### Public Trust in Banks and Financial Institutions: A Knowledge Mining Approach
 Made in collaboration with the brilliant minds of Soha Arian, Kasra Akbari, and Eman Ajmal.
 
 #### Project Proposal
@@ -29,9 +29,9 @@ Made in collaboration with the brilliant minds of Soha Arian, Kasra Akbari, and 
 
 </details>
 
-##Reflections
+## Reflections
 
-##Individual Assignments
+## Individual Assignments
 
 -   [Assignment 1 - February 10th, 2026](6323-A1.qmd)
 -   [Assignment 2 - February 17th, 2026](6323-A2.qmd)
