@@ -21,7 +21,7 @@ format: html
 
 <summary><strong>Or Click to Show/Hide Pitch Deck</strong></summary>
 
-<iframe src="6354PitchDeck.pptx" width="100%" height="800px" style="border: none; margin-top: 1em;">
+<iframe src="6354PitchDeck.pdf" width="100%" height="800px" style="border: none; margin-top: 1em;">
 
 </iframe>
 
