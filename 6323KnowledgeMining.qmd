@@ -1,6 +1,8 @@
 ---
 title: "EPPS 6323 Knowledge Mining | Spring 2026"
-format: html
+format: 
+  html:
+    code-fold: true
 ---
 
 ## Group Project
@@ -38,7 +40,7 @@ Made in collaboration with the brilliant minds of Soha Arian, Kasra Akbari, and 
 
 ## Reflections
 
-#### The Advantages and Limitations of LLMs | March 31st, 2026
+### The Advantages and Limitations of LLMs | March 31st, 2026
 
 LLMs are, at their best, remarkably efficient pattern synthesizers. They can summarize dense material, translate across domains (technical → plain English, for example), generate structured drafts, and even assist in light data cleaning or coding tasks. In research contexts, that’s huge. Hours of initial groundwork—literature overviews, note consolidation, early-stage framing—can be compressed into minutes. Not perfectly, but close enough to move things forward. They’re especially good at starting things. Blank pages, less so.
 
@@ -46,7 +48,7 @@ Where they struggle, though—and this shows up quickly—is in reasoning under 
 
 The parts of research that require judgment, context, and accountability will remain human-driven, and probably become more important, not less. Deciding what questions to ask, interpreting ambiguous results, understanding client or market context, and making final decisions under uncertainty—those aren’t easily outsourced. There’s also a trust component. Clients and stakeholders don’t just want outputs; they want reasoning they can stand behind. So while AI will reshape how research is done, it won’t replace the need for human oversight—it will, if anything, raise the bar for it. And maybe that’s the shift: less time spent producing information, more time spent deciding what actually matters.
 
-#### Predictive Models as Research Assistants | March 24th, 2026
+### Predictive Models as Research Assistants | March 24th, 2026
 
 Close reading is intimate. It’s slow, deliberate, almost like sitting with a single painting and noticing every brushstroke. You catch tone, irony, contradictions, the feel of a text. But it doesn’t scale. At all.
 
@@ -60,17 +62,17 @@ LLMs, on the other hand, are more like… flexible assistants. They can help sum
 
 Still, I’d hesitate to fully rely on them, for they are limited by hallucinations, the inability to decipher meaning (only patterns), and bias. This is why it is essential to make sure the data being fed into your models does not predispose the model to bias, and why verification of findings is essential when working with predictive models.
 
-#### Prediction vs Explanation and Financial Markets | March 10th, 2026
+### Prediction vs Explanation and Financial Markets | March 10th, 2026
 
 It’s one of those questions that sounds clean in theory but gets murky fast in practice -prediction versus explanation. Sometimes, honestly, you don’t need to know why something happens to act on it. Take credit risk models, for example. A bank might use a model that predicts the likelihood of default with high accuracy, even if the internal logic is complex or not easily interpretable. From a purely operational standpoint, that can be enough - decisions get made, losses get managed. But shift into a policy or advisory context, say financial planning for clients, and suddenly explanation matters a lot more. If a portfolio underperforms, it’s not enough to say “the model predicted this outcome.” Clients (and regulators) expect a rationale. Why did it happen? Was it market conditions, asset allocation, timing? Prediction gets you speed; explanation gets you trust. And depending on the setting, one without the other can feel incomplete.
 
 Now, thinking about a simple causal structure in a financial context - say, the relationship between portfolio diversification and portfolio returns - you could sketch it out like this: diversification -> returns. Straightforward, at least on the surface. But almost immediately, confounders start creeping in. Market conditions, for one - bull versus bear markets can influence both how diversified a portfolio is and how it performs. Investor risk tolerance is another; more risk-tolerant investors might both diversify differently and experience different return profiles. Even time horizon plays a role. So what looks like a clean causal link quickly becomes tangled. To distinguish causation from mere prediction, you’d need to isolate the effect of diversification itself - through controlled comparisons, maybe matching portfolios with similar risk profiles, or using quasi-experimental designs. Otherwise, you’re left with a predictive association: diversified portfolios tend to perform a certain way, but you can’t confidently say diversification caused that outcome. And that distinction (subtle, but critical) is where a lot of real-world analysis either holds up, or quietly falls apart.
 
-#### Reflection on a Machine Learning Pipeline | March 3rd, 2026
+### Reflection on a Machine Learning Pipeline | March 3rd, 2026
 
 TBP
 
-#### Knowledge, Information, and AI | February 24th, 2026
+### Knowledge, Information, and AI | February 24th, 2026
 
 It’s tempting to say humans “find” knowledge the way you’d find your keys—look hard enough, eventually it turns up—but that’s not really how it works. It’s messier than that. People stumble into knowledge, argue their way toward it, inherit it, misinterpret it, revise it… sometimes all in the same afternoon. We piece it together through experience, observation, trial-and-error, and, honestly, a fair amount of guesswork dressed up as confidence. Think about how often understanding comes after confusion, not before. A student rereads something three times, suddenly it clicks—was the knowledge always there? Maybe. But it had to be processed, wrestled with a bit. That’s the human part.
 
@@ -80,17 +82,17 @@ Now, when you look at AI systems—especially modern ones—you start to notice 
 
 If you step back a bit, a pattern emerges—actually, a few. First, AI tends to confuse correlation with understanding. It’s excellent at spotting patterns, but not always at grasping meaning. Second, it operates without lived experience, which sounds obvious, but has real consequences—it can’t “ground” information the way humans do. Third, it often projects certainty where uncertainty would be more appropriate, which… people do too, to be fair, but AI does it at scale. So in a strange way, AI is overloaded with information but still struggles to produce what we’d comfortably call knowledge. And maybe that’s the core tension: knowing that something is true isn’t the same as knowing why it matters.
 
-#### Reflection on Assignment 2 | February 17th, 2026
+### Reflection on Assignment 2 | February 17th, 2026
 
 TBP
 
-#### Artifical General Intelligence & O'Neil's Weapons of Math Destruction | Febuary 10th, 2026
+### Artifical General Intelligence & O'Neil's Weapons of Math Destruction | Febuary 10th, 2026
 
 AGI (Artificial General Intelligence) is often discussed as though it were an inevitable milestone, but in practice, it remains more of an evolving concept than a concrete achievement. At its core, AGI refers to a form of machine intelligence capable of performing a wide range of cognitive tasks across domains, rather than being confined to narrow, specialized functions. In other words, it is intended to approximate the adaptability and reasoning capacity of human intelligence - though whether it can truly replicate that depth is still an open question. What makes this especially relevant, when considered alongside Cathy O’Neil’s Weapons of Math Destruction, is the recognition that even today’s narrower algorithms already exert significant influence while operating with limited transparency . Extending that dynamic to more generalized systems introduces not just technical challenges, but broader concerns around interpretability and accountability.
 
 In the context of scientific research, AGI holds the potential to fundamentally reshape how knowledge is generated. It could, for instance, accelerate hypothesis formation, automate complex simulations, and uncover patterns within datasets that would otherwise remain inaccessible. That said, this potential comes with a degree of caution. As O’Neil highlights, reliance on opaque computational systems can lead to outcomes that are difficult to interrogate or validate . If AGI-driven tools are adopted without sufficient scrutiny, there is a risk that researchers may begin to accept results without fully understanding the processes behind them. This introduces a subtle but important tension: while AGI may enhance the efficiency and scale of scientific inquiry, it also necessitates a renewed emphasis on critical evaluation to ensure that scientific rigor is not inadvertently compromised.
 
-#### Breiman Vs. Galit | February 3rd, 2026
+### Breiman Vs. Galit | February 3rd, 2026
 
 Breiman’s “Statistical Modeling: The Two Cultures” and Shmueli’s “To Explain or to Predict?” approach statistical modeling from closely related, yet meaningfully distinct, perspectives. Breiman frames the divide as a fundamental cultural split between data modeling and algorithmic modeling, advocating strongly for the latter as a more pragmatic approach. His argument is direct, emphasizing predictive accuracy and real-world performance over traditional inferential assumptions. In contrast, Shmueli offers a more structured and reconciliatory framework, distinguishing between explanatory and predictive modeling as separate, but equally valid, objectives within statistical practice.
 
