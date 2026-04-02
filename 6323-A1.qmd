@@ -1,7 +1,10 @@
 ---
 title: "Assignment 1 - February 10th, 2026"
 subtitle: EPPS 6323 Knowledge Mining
-format: html
+format: 
+  html:
+    code-fold: true
+    code-summary: "Show the Code"
 ---
 
 # R Programming Basic Commands
