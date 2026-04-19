@@ -1,5 +1,5 @@
 ---
-title: "Assignment 4 - March 31st, 2026"
+title: "Assignment 4 - March 31st, 2026 (In Progress)"
 subtitle: EPPS 6323 Knowledge Mining
 format: 
   html:
@@ -7,3 +7,104 @@ format:
     code-summary: "Show the Code"
 ---
 
+# Visualization Code
+
+```{r}
+library(tidyverse)
+library(plotly)
+library(wordcloud)
+library(DT)
+library(stringr)
+library(readr)
+library(tools)
+
+zip_path <- "C:/Users/marti/Downloads/PSJobs201606_202603.zip"
+extract_dir <- file.path(tempdir(), "psjobs_extract")
+
+if (!dir.exists(extract_dir)) dir.create(extract_dir, recursive = TRUE)
+
+if (!file.exists(zip_path)) {
+  stop("ZIP file not found: ", zip_path)
+}
+
+unzip(zip_path, exdir = extract_dir)
+
+job_files <- list.files(
+  extract_dir,
+  recursive = TRUE,
+  full.names = TRUE
+)
+
+job_files <- job_files[grepl("\\.(txt|html|htm|pdf|doc|docx)$", job_files, ignore.case = TRUE)]
+
+if (length(job_files) == 0) {
+  stop("No supported files found in ZIP.")
+}
+
+article_data <- tibble(
+  article_id = seq_along(job_files),
+  filename   = basename(job_files),
+  full_path  = job_files
+) %>%
+  mutate(
+    extension   = tolower(file_ext(filename)),
+    time_period = str_extract(filename, "20\\d{2}|19\\d{2}"),
+    time_period = as.integer(time_period)
+  )
+
+# ---- Plot 1: files by year ----
+year_counts <- article_data %>%
+  filter(!is.na(time_period)) %>%
+  count(time_period, name = "n")
+
+p1 <- ggplot(year_counts, aes(x = time_period, y = n)) +
+  geom_col() +
+  theme_minimal() +
+  labs(
+    title = "Number of files by year",
+    x = "Year",
+    y = "Number of files"
+  )
+
+ggplotly(p1)
+
+# ---- Plot 2: files by extension ----
+ext_counts <- article_data %>%
+  count(extension, name = "n") %>%
+  arrange(desc(n))
+
+p2 <- ggplot(ext_counts, aes(x = reorder(extension, n), y = n)) +
+  geom_col() +
+  coord_flip() +
+  theme_minimal() +
+  labs(
+    title = "Number of files by file type",
+    x = "File type",
+    y = "Number of files"
+  )
+
+ggplotly(p2)
+
+# ---- Word cloud from filenames only ----
+filename_words <- article_data %>%
+  mutate(filename_clean = filename %>%
+           str_remove("\\.[^.]+$") %>%
+           str_to_lower() %>%
+           str_replace_all("[^a-z0-9 ]", " ")) %>%
+  select(filename_clean) %>%
+  separate_rows(filename_clean, sep = "\\s+") %>%
+  rename(word = filename_clean) %>%
+  filter(word != "", !str_detect(word, "^\\d+$")) %>%
+  count(word, sort = TRUE) %>%
+  slice_head(n = 80)
+
+wordcloud(
+  words = filename_words$word,
+  freq = filename_words$n,
+  max.words = 80,
+  random.order = FALSE
+)
+
+# ---- Table ----
+datatable(article_data, options = list(pageLength = 25), rownames = FALSE)
+```

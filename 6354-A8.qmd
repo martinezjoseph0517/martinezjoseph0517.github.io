@@ -1,0 +1,9 @@
+---
+title: "Assignment 8 - April 16th, 2026"
+subtitile: "Information Management"
+format: 
+  html:
+     code-fold: true
+     code-summary: "Show the Code"
+---
+

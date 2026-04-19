@@ -40,6 +40,8 @@ format: html
 
 ## Assignments
 
+-   [AI Lab ''Assignment 7'' - April 9th, 2026](6354-AI-Lab.qmd)
+
 -   [Assignment 1 - February 5th, 2026](6354-A1.qmd)
 
 -   [Assignment 2 - February 12th, 2026](6354-A2.qmd)
@@ -51,3 +53,7 @@ format: html
 -   [Assignment 5 - March 5th, 2026](6354-A5.qmd)
 
 -   [Assignment 6 - March 26th, 2026](6354-A6.qmd)
+
+-   [Assignment 8 - April 16th, 2026](6354-A8.qmd)
+
+
